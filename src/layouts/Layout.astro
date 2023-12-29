@@ -1,25 +1,35 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "@fontsource/fira-mono";
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
+    <!-- Background -->
+    <!-- <div
+      class="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"
+    >
+    </div> -->
+    <div class="relative h-full w-full bg-white"></div>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>
@@ -27,12 +37,35 @@ const { title } = Astro.props;
     color-scheme: light dark;
   }
   html {
-    font-family: system-ui, sans-serif;
-    /* background: #050505; */
+    font-family: "Fira Mono", system-ui, sans-serif;
+  }
+  header {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    column-gap: 0.5rem;
   }
   body {
     display: flex;
-    justify-content: center;
-
+    flex-direction: column;
+    /* justify-content: center; */
+    /* background: #050505; */
+    min-height: 100vh;
+    scroll-behavior: smooth;
   }
+
+  @media (max-width: 600px) {
+    header nav {
+      width: inherit;
+      overflow: auto;
+      height: 48px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  /* @media (prefers-reduced-animation: reduce) {
+    body {
+      scroll-behavior: auto;
+    }
+  } */
 </style>

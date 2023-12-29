@@ -1,27 +1,122 @@
 ---
+import CSSIcon from "./icons/CSS.astro";
+import HTMLIcon from "./icons/HTML.astro";
+import MaterialUIIcon from "./icons/MaterialUI.astro";
+import ReactIcon from "./icons/React.astro";
+import RemixIcon from "./icons/Remix.astro";
+import TailwindIcon from "./icons/Tailwind.astro";
+import TypeScriptIcon from "./icons/TypeScript.astro";
+import RapidApiIcon from "./icons/RapidApi.astro";
+import JavaScriptIcon from "./icons/JavaScript.astro";
+import GitHubBtn from "./GitHubBtn.astro";
+const TAGS = {
+  HTML: {
+    name: "HTML 5",
+    class: "text-[#D5502B] border-[#D5502B]",
+    icon: HTMLIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class: "text-[#1571AF] border-[#1571AF]",
+    icon: CSSIcon,
+  },
+  MaterialUI: {
+    name: "Material-UI",
+    class: "text-[#0A7CEF] border-[#0A7CEF]",
+    icon: MaterialUIIcon,
+  },
+  React: {
+    name: "ReactJS",
+    class: "text-[#0ACCEF] border-[#0ACCEF]",
+    icon: ReactIcon,
+  },
+  Remix: {
+    name: "Remix",
+    class: "text-[#1A1A1A] border-[#1A1A1A]",
+    icon: RemixIcon,
+  },
+  Tailwind: {
+    name: "Tailwind CSS",
+    class: "text-[#23A3B1] border-[#23A3B1]",
+    icon: TailwindIcon,
+  },
+  TypeScript: {
+    name: "TypeScript",
+    class: "text-[#3575BB] border-[#3575BB]",
+    icon: TypeScriptIcon,
+  },
+  RapidApi: {
+    name: "Rapid API",
+    class: "text-[#23456E] border-[#23456E]",
+    icon: RapidApiIcon,
+  },
+  JavaScript: {
+    name: "JavaScript",
+    class: "text-[#E2CF51] border-[#E2CF51]",
+    icon: JavaScriptIcon,
+  },
+};
 const PROJECTS = [
   {
-    title: "Project1",
-    description: "Description project1",
-    tags: ["HTML", "CSS", "JAVASCRIPT"],
-    image: "/logo.jpg",
-    github: "",
-    link: "",
+    title: "ShopApp - Online shop 🛍️",
+    description:
+      "Pagina de demostracion para una tienda online, de manera interactiva se puede eliminar productos del carrito y modificar su cantidad.",
+    tags: [TAGS.React, TAGS.TypeScript, TAGS.MaterialUI, TAGS.HTML, TAGS.CSS],
+    image: "/ShopProject.webp",
+    github: "https://github.com/MANR1996/ShopApp",
+    link: "https://react-challange-pearl.vercel.app/",
+  },
+  {
+    title: "MovieApp - Catálogo y valoración de películas 🎭",
+    description:
+      "Aplicacion de busequedas de pelis para conocer en que plataforma esta disponible, valoraciones, sinopsis, actores y mucho más... Si no sabes que ver dejate llevar por sus recomendaciones.",
+    tags: [
+      TAGS.Remix,
+      TAGS.React,
+      TAGS.Tailwind,
+      TAGS.TypeScript,
+      TAGS.RapidApi,
+      TAGS.HTML,
+      TAGS.CSS,
+    ],
+    image: "/MovieProject.webp",
+    github: "https://github.com/MANR1996/MovieApp",
+    link: "https://movie-app-two-gray.vercel.app/topmovies",
   },
 ];
 ---
 
 {
   PROJECTS.map(({ title, description, tags, image, github, link }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-blue-600/80 opacity-70 mb-2">{title}</h3>
+    <article class="mb-20">
+      <div class="flex gap-y-2 lg:flex-row flex-col lg:place-content-between mb-2">
+        <a href={link} target="_blank" class="flex items-center">
+          <h3 class="text-2xl font-semibold text-blue-600/80 opacity-70 ">
+            {title}
+          </h3>
+        </a>
+        <GitHubBtn href={github} />
+      </div>
       <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul>
+      <ul class="flex gap-x-2 gap-y-2 flex-row flex-wrap mb-4">
         {tags.map((tag) => (
-          <li>{tag}</li>
+          <li>
+            <span
+              class={`items-center bg-white flex gap-x-1 rounded-full text-sm py-1 px-2 border-2 ${tag.class}`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
         ))}
       </ul>
-      <img class="rounded shadow-2xl shadow-black/50 " src={image} alt={`Screenshot project ${title}`} />
+      <a href={link} target="_blank">
+        <img
+          class="rounded shadow-2xl shadow-black/50 "
+          src={image}
+          alt={`Screenshot project ${title}`}
+        />
+      </a>
     </article>
   ))
 }

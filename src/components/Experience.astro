@@ -3,24 +3,26 @@ import type { Code, Debug } from "astro:components";
 import ExperienceItem from "./ExperienceItem.astro";
 const EXPERIENCE = [
   {
-    date: "March 2022",
-    description: "Profesor description ...",
-    name: "Profesor in Universidad de Matanzas",
+    date: "Enero 2019 - Septiembre 2023",
+    name: "Profesor in Universidad de Matanzas.",
+    description:
+      "Impartí clases de Programación Web e Inteligencia Artificial y estuve vinculado al desarrollo de varios proyectos en estas ramas.",
   },
   {
-    date: "March 2022",
+    date: "Septiembre 2019 - Octubre 2019",
+    name: "Developer and designer in AMB Septic Tank web.",
+    description:
+      "Se diseñó y desarrolló la web de un negocio séptico en Miami, Florida. Una web estática y simple que ayudo a darle un impulso al negocio.",
+  },
+  {
+    date: "Septiembre 2020 - Actualidad",
+    name: "Developer in Green Island Solution",
     description: "Developer  description ...",
-    name: "Developer in PartsBase",
-  },
-  {
-    date: "March 2022",
-    description: "Developer and designer  description ...",
-    name: "Developer and designer in AMB Septic web",
   },
 ];
---- 
+---
 
-<ol class="relative border-s-2 ">
+<ol class="relative border-s-2">
   {
     EXPERIENCE.map((experience) => (
       <li class="mb-10 ms-4">

@@ -1,23 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Badge from "../components/Badge.astro";
 import LinkedInIcon from "../components/icons/LinkedIn.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
-import InfoJobsIcon from "../components/icons/InfoJobs.astro";
+import ResearchGateIcon from "../components/icons/ResearchGate.astro";
 import CodeIcon from "../components/icons/Code.astro";
 import BriefCaseIcon from "../components/icons/BriefCase.astro";
 import MailIcon from "../components/icons/Mail.astro";
+import ContactIcon from "../components/icons/Contact.astro";
+import UserIcon from "../components/icons/User.astro";
 import SocialContainer from "../components/SocialContainer.astro";
 import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
 import SectionContainer from "../components/SectionContainer.astro";
-import GitHub from "../components/icons/GitHub.astro";
-import InfoJobs from "../components/icons/InfoJobs.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
 
 const MAIL = "alecuba96@gmail.com";
+const PHONE = "+34 600 96 28 35";
 const yearsOfExpertise = calculateAge(new Date(2018, 8, 1));
-export const STATUS = {
+const STATUS = {
   AVAILABLE: {
     text: "Available for hire",
     class: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
@@ -35,19 +37,19 @@ export const STATUS = {
 
 const SOCIALPROFILES = [
   {
-    href: ``,
+    href: `www.linkedin.com/in/manuel-alejandro-naranjo-rey`,
     name: "LinkedIn",
     icon: LinkedInIcon,
   },
   {
-    href: ``,
+    href: `https://github.com/MANR1996`,
     name: "GitHub",
     icon: GitHubIcon,
   },
   {
-    href: ``,
-    name: "InfoJobs",
-    icon: InfoJobsIcon,
+    href: `https://www.researchgate.net/profile/Manuel-Alejandro-Naranjo-Rey`,
+    name: "ResearchGate",
+    icon: ResearchGateIcon,
   },
   {
     href: `mailto:${MAIL}`,
@@ -108,6 +110,14 @@ function calculateAge(bornDate: Date) {
         }
       </nav>
     </SectionContainer>
+    <SectionContainer id="about" class="mb-24">
+      <h2
+        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2"
+      >
+        <UserIcon class="size-6" />About me
+      </h2>
+      <About />
+    </SectionContainer>
     <SectionContainer id="experience" class="mb-24">
       <h2
         class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2"
@@ -123,6 +133,14 @@ function calculateAge(bornDate: Date) {
         <CodeIcon class="size-6" />Projects
       </h2>
       <Projects />
+    </SectionContainer>
+    <SectionContainer id="contact" class="mb-24">
+      <h2
+        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2"
+      >
+        <ContactIcon class="size-6" />Contact Me
+      </h2>
+      <Contact mail={MAIL} phone={PHONE} />
     </SectionContainer>
   </main>
 </Layout>

@@ -10,7 +10,102 @@ interface Props {
 const { mail, phone } = Astro.props;
 ---
 
-<form class="mb-6">
+<style>
+  @keyframes vibration-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(0deg);
+    }
+    45% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    55% {
+      transform: rotate(5deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .vibrate {
+    animation: vibration-animation 5s linear infinite;
+  }
+  .vibrate-hover:hover .vibrate {
+    animation: vibration-animation 1s linear infinite;
+    scale: 1.2;
+  }
+  .notification {
+    display: flex;
+    opacity: 0;
+    animation: notification-animation 5s linear forwards;
+  }
+
+  @keyframes notification-animation {
+    0% {
+      opacity: 0;
+      scale: 0.5;
+    }
+    2% {
+      opacity: 1;
+      scale: 1;
+    }
+    90% {
+      opacity: 1;
+      scale: 1;
+    }
+    98% {
+      opacity: 0;
+      scale: 0.5;
+    }
+  }
+</style>
+
+<script is:inline src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script is:inline>
+  const sendEmail = () => {
+    document.getElementById("myForm").style.animationPlayState = "running";
+    Email.send({
+      SecureToken: "f75c716b-d4c4-4086-ab80-484cee199b3d",
+      To: "alecuba96@gmail.com",
+      From: "alecuba96@gmail.com",
+      Subject: document.getElementById("subject").value,
+      Body:
+        "Correo: " +
+        document.getElementById("email").value +
+        " Subject: " +
+        document.getElementById("subject").value +
+        " Message: " +
+        document.getElementById("message").value,
+    }).then((message) => {
+      document.getElementById("email").value = "";
+      document.getElementById("subject").value = "";
+      document.getElementById("message").value = "";
+      let elemento = document.getElementById("notificationPopUp");
+      elemento.classList.add("notification");
+      setTimeout(function () {
+        elemento.classList.remove("notification");
+      }, 5000);
+    });
+  };
+</script>
+
+<div
+  id="notificationPopUp"
+  class="w-[250px] sm:w-[340px] h-[50px] bg-blue-600/80 fixed bottom-[40px] right-[25px] justify-center items-center rounded-full text-white hidden"
+>
+  ¡Gracias por contactarme!
+</div>
+
+<form id="myForm" class="mb-6" onsubmit="sendEmail(); reset(); return false;">
   <div class="mb-6">
     <label
       for="email"
@@ -53,7 +148,8 @@ const { mail, phone } = Astro.props;
   </div>
   <button
     type="submit"
-    class="text-white bg-blue-600/80 hover:bg-blue-700/80 w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block"
+    onsubmit="sendEmail();reset(); return false;"
+    class="text-white bg-blue-600/80 hover:bg-blue-700/80 transition w-full focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block"
     >Send message</button
   >
 </form>
@@ -67,37 +163,3 @@ const { mail, phone } = Astro.props;
     ><PhoneIcon class="'size-4 vibrate" />{phone}</a
   >
 </p>
-
-<style>
-  @keyframes vibration-animation {
-    0% {
-      transform: rotate(0deg);
-    }
-    40% {
-      transform: rotate(0deg);
-    }
-    45% {
-      transform: rotate(-5deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    55% {
-      transform: rotate(5deg);
-    }
-    60% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-
-  .vibrate {
-    animation: vibration-animation 5s linear infinite;
-  }
-  .vibrate-hover:hover .vibrate{
-    animation: vibration-animation 1s linear infinite;
-    scale: 1.2;
-  }
-</style>

@@ -37,7 +37,7 @@ const STATUS = {
 
 const SOCIALPROFILES = [
   {
-    href: `www.linkedin.com/in/manuel-alejandro-naranjo-rey`,
+    href: `https://www.linkedin.com/in/manuel-alejandro-naranjo-rey`,
     name: "LinkedIn",
     icon: LinkedInIcon,
   },
@@ -76,25 +76,179 @@ function calculateAge(bornDate: Date) {
 }
 ---
 
+<style>
+  ul li:first-child {
+    animation: text-anim 24s cubic-bezier(0.18, 0.89, 0.32, 1.27) both infinite;
+  }
+  @keyframes text-anim {
+    0% {
+      margin-top: 0;
+    }
+    40% {
+      margin-top: 0;
+    }
+    42% {
+      margin-top: -40px;
+    }
+    54.5% {
+      margin-top: -40px;
+    }
+    56.5% {
+      margin-top: -80px;
+    }
+    69% {
+      margin-top: -80px;
+    }
+    71% {
+      margin-top: -120px;
+    }
+    83.5% {
+      margin-top: -120px;
+    }
+    85.5% {
+      margin-top: -160px;
+    }
+    98% {
+      margin-top: -160px;
+    }
+    100% {
+      margin-top: 0px;
+    }
+  }
+  @media (min-width: 640px) {
+    .typing-animation {
+      font: 30px;
+      display: block;
+      font-family: monospace;
+      white-space: nowrap;
+      border-right: 2px solid transparent;
+      width: 50ch;
+      overflow-x: hidden;
+      overflow-y: visible;
+
+      animation-timeline: view();
+
+      animation:
+        typing 4s steps(50),
+        blink 0.5s 10 step-end alternate forwards;
+
+      animation: name duration timing-function delay iteration-count direction
+        fill-mode;
+    }
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: black;
+      }
+    }
+    @keyframes text-anim {
+      0% {
+        margin-top: 0;
+      }
+      40% {
+        margin-top: 0;
+      }
+      42% {
+        margin-top: -50px;
+      }
+      54.5% {
+        margin-top: -50px;
+      }
+      56.5% {
+        margin-top: -100px;
+      }
+      69% {
+        margin-top: -100px;
+      }
+      71% {
+        margin-top: -150px;
+      }
+      83.5% {
+        margin-top: -150px;
+      }
+      85.5% {
+        margin-top: -200px;
+      }
+      98% {
+        margin-top: -200px;
+      }
+      100% {
+        margin-top: 0px;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    @keyframes text-anim {
+      0% {
+        margin-top: 0;
+      }
+      40% {
+        margin-top: 0;
+      }
+      42% {
+        margin-top: -70px;
+      }
+      54.5% {
+        margin-top: -70px;
+      }
+      56.5% {
+        margin-top: -140px;
+      }
+      69% {
+        margin-top: -140px;
+      }
+      71% {
+        margin-top: -210px;
+      }
+      83.5% {
+        margin-top: -210px;
+      }
+      85.5% {
+        margin-top: -280px;
+      }
+      98% {
+        margin-top: -280px;
+      }
+      100% {
+        margin-top: 0px;
+      }
+    }
+  }
+</style>
+
 <Layout
   title="Resume of AleDev. Desarrollador y Programador Web"
   description=`Contrata a AleDev. Desarrollador y Programador Web con ${yearsOfExpertise} años de experiencia y sumando.`
 >
   <main class="px-4">
     <SectionContainer class="lg:pt-44 pt-24 lg:pb-24 pb-12">
+      <div class="flex items-center">
+        <a class="flex" href={`mailto:${MAIL}`}>
+          <Badge text={STATUS.AVAILABLE.text} class={STATUS.AVAILABLE.class} />
+        </a>
+      </div>
       <h1
-        class="text-black flex text-3xl md:text-4xl lg:text-5xl font-bold flex-row gap-x-4 pb-4"
+        class="text-black sm:flex block text-3xl/[40px] sm:text-4xl/[50px] md:text-4xl/[70px] lg:text-5xl/[70px] font-bold flex-row gap-x-4 pb-4 whitespace-nowrap"
       >
-        Hi, I am Alejandro<div class="flex justify-center items-center">
-          <a class="flex" href={`mailto:${MAIL}`}>
-            <Badge
-              text={STATUS.AVAILABLE.text}
-              class={STATUS.AVAILABLE.class}
-            />
-          </a>
+        Hi, I am
+        <div class="md:h-[70px] sm:h-[50px] h-[40px] overflow-hidden">
+          <ul class="md:leading-[70px] sm:leading-[50px] leading-[40px]">
+            <li class="list-none whitespace-nowrap">Alejandro.</li>
+            <li class="list-none whitespace-nowrap">a Web Developer.</li>
+            <li class="list-none whitespace-nowrap">an apprentice.</li>
+            <li class="list-none whitespace-nowrap">a collaborator.</li>
+            <li class="list-none whitespace-nowrap">a perfectionist.</li>
+          </ul>
         </div>
       </h1>
-      <h2 class="lg:text-2xl text-xl opacity-50 pb-2 text-wrap max-w-[700px]">
+      <h2
+        class="lg:text-2xl text-xl opacity-50 mb-2 sm:text-nowrap sm:whitespace-nowrap max-w-[700px] typing-animation"
+      >
         <span class="text-blue-600/80"
           >{yearsOfExpertise} años de experiencia</span
         > en Desarrollo Web<span class="text-blue-600/80"> y sumando.</span>

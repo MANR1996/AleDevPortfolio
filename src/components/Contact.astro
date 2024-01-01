@@ -57,13 +57,47 @@ const { mail, phone } = Astro.props;
     >Send message</button
   >
 </form>
-<p class="mb-2 text-sm text-gray-500 dark:text-gray-400 w-fit">
+<p class="mb-2 text-sm text-gray-500 dark:text-gray-400 w-fit vibrate-hover">
   <a href=`mailto:${mail}` class="hover:underline flex gap-x-2"
-    ><MailIcon class="size-5" />{mail}</a
+    ><MailIcon class="size-5 vibrate" />{mail}</a
   >
 </p>
-<p class="text-sm text-gray-500 dark:text-gray-400 w-fit">
+<p class="text-sm text-gray-500 dark:text-gray-400 w-fit vibrate-hover">
   <a href=`tel:${phone}` class="hover:underline flex gap-x-1 items-center"
-    ><PhoneIcon class="'size-4" />{phone}</a
+    ><PhoneIcon class="'size-4 vibrate" />{phone}</a
   >
 </p>
+
+<style>
+  @keyframes vibration-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(0deg);
+    }
+    45% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    55% {
+      transform: rotate(5deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .vibrate {
+    animation: vibration-animation 5s linear infinite;
+  }
+  .vibrate-hover:hover .vibrate{
+    animation: vibration-animation 1s linear infinite;
+    scale: 1.2;
+  }
+</style>

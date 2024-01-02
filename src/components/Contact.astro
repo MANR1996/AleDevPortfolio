@@ -88,7 +88,7 @@ const { mail, phone } = Astro.props;
         document.getElementById("subject").value +
         " Message: " +
         document.getElementById("message").value,
-    }).then((message) => {
+    }).then(() => {
       let elemento = document.getElementById("notificationPopUp");
       elemento.classList.add("notification");
       setTimeout(function () {

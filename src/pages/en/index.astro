@@ -23,52 +23,55 @@ const MAIL = "alecuba96@gmail.com";
 const PHONE = "+34 600 96 28 35";
 const yearsOfExpertise = calculateAge(new Date(2018, 8, 1));
 const STATUS = {
-    AVAILABLE: {
-        text: t("site.status.aviable"),
-        class: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
-    },
-    LISTING: {
-        text: t("site.status.listing"),
-        class: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 ",
-    },
-    WORKING: {
-        text: t("site.status.working"),
-        class: "flex bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 ",
-    },
+  AVAILABLE: {
+    text: t("site.status.aviable"),
+    class: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+  },
+  LISTING: {
+    text: t("site.status.listing"),
+    class:
+      "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 ",
+  },
+  WORKING: {
+    text: t("site.status.working"),
+    class: "flex bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 ",
+  },
 };
 const ACTUALSTATUS = STATUS.AVAILABLE;
 const SOCIALPROFILES = [
-    {
-        href: `https://www.linkedin.com/in/manuel-alejandro-naranjo-rey`,
-        name: "LinkedIn",
-        icon: LinkedInIcon,
-    },
-    {
-        href: `https://github.com/MANR1996`,
-        name: "GitHub",
-        icon: GitHubIcon,
-    },
-    {
-        href: `https://www.researchgate.net/profile/Manuel-Alejandro-Naranjo-Rey`,
-        name: "ResearchGate",
-        icon: ResearchGateIcon,
-    },
-    {
-        href: `mailto:${MAIL}`,
-        name: MAIL,
-        icon: MailIcon,
-    },
+  {
+    href: `https://www.linkedin.com/in/manuel-alejandro-naranjo-rey`,
+    name: "LinkedIn",
+    icon: LinkedInIcon,
+  },
+  {
+    href: `https://github.com/MANR1996`,
+    name: "GitHub",
+    icon: GitHubIcon,
+  },
+  {
+    href: `https://www.researchgate.net/profile/Manuel-Alejandro-Naranjo-Rey`,
+    name: "ResearchGate",
+    icon: ResearchGateIcon,
+  },
+  {
+    href: `mailto:${MAIL}`,
+    name: MAIL,
+    icon: MailIcon,
+  },
 ];
 function calculateAge(bornDate: Date) {
-    bornDate = new Date(bornDate);
-    var actualDate = new Date();
-    var years = actualDate.getFullYear() - bornDate.getFullYear();
-    if (actualDate.getMonth() < bornDate.getMonth() ||
-        (actualDate.getMonth() == bornDate.getMonth() &&
-            actualDate.getDate() < bornDate.getDate())) {
-        years--;
-    }
-    return years;
+  bornDate = new Date(bornDate);
+  var actualDate = new Date();
+  var years = actualDate.getFullYear() - bornDate.getFullYear();
+  if (
+    actualDate.getMonth() < bornDate.getMonth() ||
+    (actualDate.getMonth() == bornDate.getMonth() &&
+      actualDate.getDate() < bornDate.getDate())
+  ) {
+    years--;
+  }
+  return years;
 }
 ---
 
@@ -224,7 +227,7 @@ function calculateAge(bornDate: Date) {
     t("site.description.second")}
 >
   <main class="px-4">
-    <SectionContainer class="lg:pt-44 pt-24 lg:pb-24 pb-12">
+    <SectionContainer id="start" class="lg:pt-44 pt-24 lg:pb-24 pb-12">
       <div class="flex items-center">
         {
           ACTUALSTATUS.text == STATUS.AVAILABLE.text ||

@@ -1,3 +1,8 @@
+---
+import { t } from "i18next";
+import { LanguageSelector } from "astro-i18next/components";
+---
+
 <style>
   .smaller {
     animation: smaller-animation linear both;
@@ -26,16 +31,23 @@
     alt="aleDev-logo"
   />
   <nav>
-    <ul class="flex flex-row gap-x-10 opacity-80">
-      <li class="hover:scale-125 transition"><a href="#start">Home</a></li>
-      <li class="hover:scale-125 transition"><a href="#about">About</a></li>
+    <ul class="flex flex-row gap-x-10 opacity-80 text-nowrap">
       <li class="hover:scale-125 transition">
-        <a href="#experience">Experience</a>
+        <a href="#start">{t("menu.home")}</a>
       </li>
       <li class="hover:scale-125 transition">
-        <a href="#projects">Projects</a>
+        <a href="#about">{t("menu.about")}</a>
       </li>
-      <li class="hover:scale-125 transition"><a href="#contact">Contact</a></li>
+      <li class="hover:scale-125 transition">
+        <a href="#experience">{t("menu.experience")}</a>
+      </li>
+      <li class="hover:scale-125 transition">
+        <a href="#projects">{t("menu.projects")}</a>
+      </li>
+      <li class="hover:scale-125 transition">
+        <a href="#contact">{t("menu.contact")}</a>
+      </li>
+      <li><LanguageSelector showFlag={true} class="my-select-class" /></li>
     </ul>
   </nav>
 </header>

@@ -6,6 +6,8 @@ interface Props {
 const { text, class: className } = Astro.props;
 ---
 
-<span class=` text-center text-xs font-medium me-2 px-2.5 py-0.5 rounded ${className}`>
+<span
+  class=` text-center text-xs font-medium me-2 px-2.5 py-0.5 rounded ${className}`
+>
   {text}
 </span>

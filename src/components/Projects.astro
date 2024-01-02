@@ -10,6 +10,7 @@ import RapidApiIcon from "./icons/RapidApi.astro";
 import AstroIcon from "./icons/Astro.astro";
 import JavaScriptIcon from "./icons/JavaScript.astro";
 import ProjectItem from "./ProjectItem.astro";
+import { t } from "i18next";
 const TAGS = {
   HTML: {
     name: "HTML 5",
@@ -69,18 +70,16 @@ const TAGS = {
 };
 const PROJECTS = [
   {
-    title: "ShopApp - Online shop 🛍️",
-    description:
-      "Pagina de demostracion para una tienda online, de manera interactiva se puede eliminar productos del carrito y modificar su cantidad.",
+    title: t("project.first.title"),
+    description: t("project.first.description"),
     tags: [TAGS.React, TAGS.TypeScript, TAGS.MaterialUI, TAGS.HTML, TAGS.CSS],
     image: "/ShopProject.webp",
     github: "https://github.com/MANR1996/ShopApp",
     link: "https://react-challange-pearl.vercel.app/",
   },
   {
-    title: "MovieApp - Catálogo y valoración de películas 🎭",
-    description:
-      "Aplicacion de busequedas de pelis para conocer en que plataforma esta disponible, valoraciones, sinopsis, actores y mucho más... Si no sabes que ver dejate llevar por sus recomendaciones.",
+    title: t("project.second.title"),
+    description: t("project.second.description"),
     tags: [
       TAGS.Remix,
       TAGS.React,
@@ -95,9 +94,8 @@ const PROJECTS = [
     link: "https://movie-app-two-gray.vercel.app/topmovies",
   },
   {
-    title: "AleDev's Portfolio - Resumen y muestra de mi trabajo 🧑‍💻",
-    description:
-      "Este es mi portafolio personal, una representación detallada de mi trayectoria en el mundo de la programación. No solo destaca mi experiencia laboral, sino que también exhibe una variedad de proyectos que he realizado, sirviendo como ejemplos de mi habilidad y versatilidad. Además, la aplicación proporciona una opción para que los visitantes se pongan en contacto conmigo directamente, facilitando la interacción y la comunicación.",
+    title: t("project.third.title"),
+    description: t("project.third.description"),
     tags: [
       TAGS.Astro,
       TAGS.Tailwind,

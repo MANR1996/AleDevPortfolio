@@ -1,0 +1,96 @@
+{
+    "site": {
+        "title": "AleDev's Portfolio. Web Developer",
+        "description": {
+            "first": "Let's contact, together we can create great things. I am a developer with ",
+            "second": " years of experience in the world of Web."
+        },
+        "status": {
+            "aviable": "Available for hire",
+            "listing": "Listening to offers",
+            "working": "Working"
+        },
+        "presentation": {
+            "numbOfCharacters": "50ch",
+            "title": "Hi, I am",
+            "options": {
+                "first": "Alejandro.",
+                "second": "a Web Developer.",
+                "third": "an apprentice.",
+                "fourth": "a collaborator.",
+                "fifth": "a perfectionist."
+            }
+        },
+        "years": " years of experience",
+        "experience": {
+            "first": "  in Web Developer ",
+            "second": "and counting."
+        },
+        "location": "From Madrid, Spain 🇪🇸.",
+        "sections": {
+            "about": "About me.",
+            "experience": "Work experience.",
+            "projects": "Projects.",
+            "contact": "Contact me."
+        }
+    },
+    "menu": {
+        "home": "Home",
+        "about": "About me",
+        "experience": "Experience",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "about": {
+        "first": "I began my journey in the field of computer science in 2014, exploring various areas before specializing in web development (specifically in the frontend profile) and artificial intelligence (with a focus on machine learning). I have always enjoyed facing professional challenges and seeking innovative solutions, and I take pride in my high level of commitment to the tasks assigned to me.",
+        "second": "I graduated in Computer Engineering in 2020 from the University of Matanzas Camilo Cienfuegos. During my studies, I achieved excellent academic results that allowed me to participate in numerous projects and professional practices. A milestone in my academic career was the publication of my thesis to opt for the title of Computer Engineer in a prestigious scientific journal for its impact in the applied area, which reflects my commitment to research and innovation. My outstanding performance earned me the honor of being selected as the best student in my career, and I was invited to join the Union of Computer Scientists of Cuba (UIC by its acronym in Spanish).",
+        "third": "My native language is Spanish, and I also have a basic level of English. My dedication and responsibility towards my work, combined with my passion for computer science, have allowed me to achieve successful results in my projects. I am always willing to learn and acquire new skills to continue growing in my career.",
+        "fourth": "I hope to have the opportunity to bring my experience and skills to a new challenge in the field of computer science."
+    },
+    "contact": {
+        "email": "Your email",
+        "emailPlaceholder": "name@company.com",
+        "subject": "Subject",
+        "subjectPlaceholder": "Let me know how I can help you",
+        "message": "Your message",
+        "messagePlaceholder": "Your message...",
+        "submit": "Send message",
+        "popUpMessage": "Thank you for contacting me!"
+    },
+    "githubMessage": "View on Github",
+    "experience": {
+        "first": {
+            "date": "January 2019 - September 2023",
+            "name": "Professor at the University of Matanzas.",
+            "description": "I taught Web Programming and Artificial Intelligence, two fascinating and constantly evolving fields. During this time, I not only taught, but also learned a lot from my students, which allowed me to grow both personally and professionally. In addition to my teaching duties, I was actively involved in the development of several innovative projects in these areas. This experience allowed me to apply and expand my theoretical knowledge, while giving me the opportunity to contribute to the advancement of these disciplines. My participation in these projects has been an integral part of my career and has reinforced my passion for teaching and development."
+        },
+        "second": {
+            "date": "September 2019 - October 2019",
+            "name": "Designer and developer of the AMB Septic Tank website.",
+            "description": "I had the opportunity to design and develop the website for a thriving septic business located in Miami, Florida. Despite being a static and simple website, its intuitive and easy-to-navigate design proved to be a valuable asset for the business. This project not only improved the online visibility of the business, but also boosted its reach to a wider audience. The implementation of this website marked a milestone in the business's trajectory, providing it with a significant boost. My contribution to the success of this business through web design and development has been a rewarding and enriching experience."
+        },
+        "third": {
+            "date": "September 2020 - Now",
+            "name": "Developer at Green Island Solution",
+            "description": "I currently work as a frontend developer at a prestigious company that provides services to PartsBase Inc., a renowned corporation based in North America. My main role is to create and optimize attractive and functional user interfaces. Working closely with PartsBase Inc., we strive to continuously improve the user experience, which in turn helps us maintain our position as a leader in our field."
+        }
+    },
+    "project": {
+        "first": {
+            "title": "ShopApp - Online store 🛍️",
+            "description": "Demonstration page for an online store. In an interactive way, you can remove products from the cart and modify their quantity."
+        },
+        "second": {
+            "title": "MovieApp - Catalog and rating of movies 🎭",
+            "description": "Movie search application to know on which platform it is available, ratings, synopsis, actors and much more... If you don't know what to watch, let yourself be guided by its recommendations."
+        },
+        "third": {
+            "title": "AleDev's Portfolio - Summary and sample of my work 🧑‍💻",
+            "description": "This is my personal portfolio, a detailed representation of my trajectory in the world of programming. It not only highlights my work experience, but also exhibits a variety of projects that I have carried out, serving as examples of my ability and versatility. In addition, the application provides an option for visitors to contact me directly, facilitating interaction and communication."
+        }
+    },
+    "home": {
+        "title": "Welcome to my awesome website!",
+        "subtitle": "English This is a <0>more complex</0> string to translate, mixed with <1>html elements</1>, such as a <2>a cool link</2>!"
+    }
+}

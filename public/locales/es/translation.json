@@ -1,0 +1,96 @@
+{
+    "site": {
+        "title": "AleDev's Portfolio. Desarrollador Web",
+        "description": {
+            "first": "Contactemos, juntos podemoscrear grandes cosas. Soy un desarrollador con ",
+            "second": " años de experiencia en el mundo Web."
+        },
+        "status": {
+            "aviable": "Disponible",
+            "listing": "Escuchando ofertas",
+            "working": "Trabajando"
+        },
+        "presentation": {
+            "numbOfCharacters": "50ch",
+            "title": "Hola, soy",
+            "options": {
+                "first": "Alejandro.",
+                "second": "Desarrollador Web.",
+                "third": "aprendiz",
+                "fourth": "colaborador.",
+                "fifth": "perfeccionista."
+            }
+        },
+        "years": " años de experiencia",
+        "experience": {
+            "first": "  en Desarrollo Web ",
+            "second": "y sumando."
+        },
+        "location": "De Madrid, España 🇪🇸.",
+        "sections": {
+            "about": "Sobre mi.",
+            "experience": "Experiencia Laboral.",
+            "projects": "Proyectos.",
+            "contact": "Contactemos."
+        }
+    },
+    "menu": {
+        "home": "Inicio",
+        "about": "Sobre mi",
+        "experience": "Experiencia",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "about": {
+        "first": "Comencé mi viaje en el campo de la informática en 2014, explorando diversas áreas antes de especializarme en desarrollo web (específicamente en el perfil frontend) e inteligencia artificial (con un enfoque en machine learning). Siempre he disfrutado enfrentándome a desafíos profesionales y buscando soluciones innovadoras, y me enorgullece mi alto nivel de compromiso con las tareas que se me asignan.",
+        "second": "Me gradué en Ingeniería Informática en 2020 de la Universidad de Matanzas Camilo Cienfuegos. Durante mis estudios, obtuve excelentes resultados académicos que me permitieron participar en numerosos proyectos y prácticas profesionales. Un hito de mi carrera académica fue la publicación de mi tesis para optar por el título de Ingeniero Informático en una prestigiosa revista científica por su impacto en el área aplicada, lo cual refleja mi compromiso con la investigación y la innovación. Mi rendimiento destacado me valió el honor de ser seleccionado como el mejor estudiante de mi carrera, y fui invitado a unirme a la Unión de Informáticos de Cuba (UIC).",
+        "third": "Mi idioma nativo es el español, y también tengo un nivel básico de inglés. Mi dedicación y responsabilidad hacia mi trabajo, combinadas con mi pasión por la informática, me han permitido obtener resultados exitosos en mis proyectos. Siempre estoy dispuesto a aprender y adquirir nuevas habilidades para seguir creciendo en mi carrera.",
+        "fourth": "Espero tener la oportunidad de llevar mi experiencia y habilidades a un nuevo desafío en el campo de la informática."
+    },
+    "contact": {
+        "email": "Tu email",
+        "emailPlaceholder": "nombre@compañia.com",
+        "subject": "Asunto",
+        "subjectPlaceholder": "Dejame saber en que puedo ayudarte",
+        "message": "Tu mensaje",
+        "messagePlaceholder": "Tu mensaje...",
+        "submit": "Enviar mensaje",
+        "popUpMessage": "¡Gracias por contactarme!"
+    },
+    "githubMessage": "Ver en Github",
+    "experience": {
+        "first": {
+            "date": "Enero 2019 - Septiembre 2023",
+            "name": "Profesor en Universidad de Matanzas.",
+            "description": "Impartí clases de Programación Web e Inteligencia Artificial, dos campos fascinantes y en constante evolución. Durante este tiempo, no sólo enseñé, sino que también aprendí mucho de mis estudiantes, lo que me permitió crecer tanto personal como profesionalmente. Además de mi labor docente, estuve activamente involucrado en el desarrollo de varios proyectos innovadores en estas áreas. Esta experiencia me permitió aplicar y ampliar mis conocimientos teóricos, al tiempo que me brindó la oportunidad de contribuir al avance de estas disciplinas. Mi participación en estos proyectos ha sido una parte integral de mi carrera y ha reforzado mi pasión por la enseñanza y el desarrollo."
+        },
+        "second": {
+            "date": "Septiembre 2019 - Octubre 2019",
+            "name": "Diseñador y desarrollador de la web de AMB Septic Tank.",
+            "description": "Tuve la oportunidad de diseñar y desarrollar el sitio web para un próspero negocio séptico ubicado en Miami, Florida. A pesar de ser una web estática y simple, su diseño intuitivo y fácil de navegar resultó ser un activo valioso para el negocio. Este proyecto no sólo mejoró la visibilidad online del negocio, sino que también impulsó su alcance a un público más amplio. La implementación de este sitio web marcó un hito en la trayectoria del negocio, proporcionándole un impulso significativo. Mi contribución al éxito de este negocio a través del diseño y desarrollo web ha sido una experiencia gratificante y enriquecedora."
+        },
+        "third": {
+            "date": "Septiembre 2020 - Actualidad",
+            "name": "Desarrollador de Green Island Solution",
+            "description": "Actualmente me desempeño como desarrollador frontend en una prestigiosa empresa que proporciona servicios a PartsBase Inc., una reconocida corporación con sede en Norteamérica. Mi papel principal es crear y optimizar interfaces de usuario atractivas y funcionales. Trabajando en estrecha colaboración con PartsBase Inc., nos esforzamos por mejorar continuamente la experiencia del usuario, lo que a su vez nos ayuda a mantener la posición como líder en nuestro campo."
+        }
+    },
+    "project": {
+        "first": {
+            "title": "ShopApp - Tienda online 🛍️",
+            "description": "Página de demostración para una tienda online. De manera interactiva, se pueden eliminar productos del carrito y modificar su cantidad."
+        },
+        "second": {
+            "title": "MovieApp - Catálogo y valoración de películas 🎭",
+            "description": "Aplicación de búsquedas de pelis para conocer en qué plataforma está disponible, valoraciones, sinopsis, actores y mucho más... Si no sabes qué ver, déjate llevar por sus recomendaciones."
+        },
+        "third": {
+            "title": "AleDev's Portfolio - Resumen y muestra de mi trabajo 🧑‍💻",
+            "description": "Este es mi portafolio personal, una representación detallada de mi trayectoria en el mundo de la programación. No solo destaca mi experiencia laboral, sino que también exhibe una variedad de proyectos que he realizado, sirviendo como ejemplos de mi habilidad y versatilidad. Además, la aplicación proporciona una opción para que los visitantes se pongan en contacto conmigo directamente, facilitando la interacción y la comunicación."
+        }
+    },
+    "home": {
+        "title": "Welcome to my awesome website!",
+        "subtitle": "Spanish This is a <0>more complex</0> string to translate, mixed with <1>html elements</1>, such as a <2>a cool link</2>!"
+    }
+}

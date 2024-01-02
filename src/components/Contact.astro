@@ -2,11 +2,11 @@
 import MailIcon from "./icons/Mail.astro";
 import PhoneIcon from "./icons/Phone.astro";
 import { t } from "i18next";
-
 interface Props {
   mail: string;
   phone: string;
 }
+const SECRET_TOKEN = import.meta.env.PUBLIC_SECURE_TOKEN;
 
 const { mail, phone } = Astro.props;
 ---
@@ -69,12 +69,15 @@ const { mail, phone } = Astro.props;
   }
 </style>
 
+<script is:inline define:vars={{ SECRET_TOKEN }}>
+  window.SECRET_TOKEN = SECRET_TOKEN;
+</script>
 <script is:inline src="https://smtpjs.com/v3/smtp.js"></script>
 <script is:inline>
   const sendEmail = (event) => {
     event.preventDefault();
     Email.send({
-      SecureToken: "f75c716b-d4c4-4086-ab80-484cee199b3d",
+      SecureToken: window.SECRET_TOKEN,
       To: "alecuba96@gmail.com",
       From: "alecuba96@gmail.com",
       Subject: document.getElementById("subject").value,
@@ -85,10 +88,7 @@ const { mail, phone } = Astro.props;
         document.getElementById("subject").value +
         " Message: " +
         document.getElementById("message").value,
-    }).then(() => {
-      document.getElementById("email").value = "";
-      document.getElementById("subject").value = "";
-      document.getElementById("message").value = "";
+    }).then((message) => {
       let elemento = document.getElementById("notificationPopUp");
       elemento.classList.add("notification");
       setTimeout(function () {

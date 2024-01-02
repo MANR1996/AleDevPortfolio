@@ -7,6 +7,7 @@ import RemixIcon from "./icons/Remix.astro";
 import TailwindIcon from "./icons/Tailwind.astro";
 import TypeScriptIcon from "./icons/TypeScript.astro";
 import RapidApiIcon from "./icons/RapidApi.astro";
+import AstroIcon from "./icons/Astro.astro";
 import JavaScriptIcon from "./icons/JavaScript.astro";
 import ProjectItem from "./ProjectItem.astro";
 const TAGS = {
@@ -55,6 +56,16 @@ const TAGS = {
     class: "text-[#E2CF51] border-[#E2CF51]",
     icon: JavaScriptIcon,
   },
+  Elastic: {
+    name: "Elastic Email",
+    class: "text-[#2D2F7A] border-[#2D2F7A]",
+    icon: null,
+  },
+  Astro: {
+    name: "Astro",
+    class: "text-[#000000] border-[#EE5D0A]",
+    icon: AstroIcon,
+  },
 };
 const PROJECTS = [
   {
@@ -82,6 +93,22 @@ const PROJECTS = [
     image: "/MovieProject.webp",
     github: "https://github.com/MANR1996/MovieApp",
     link: "https://movie-app-two-gray.vercel.app/topmovies",
+  },
+  {
+    title: "AleDev's Portfolio - Resumen y muestra de mi trabajo 🧑‍💻",
+    description:
+      "Este es mi portafolio personal, una representación detallada de mi trayectoria en el mundo de la programación. No solo destaca mi experiencia laboral, sino que también exhibe una variedad de proyectos que he realizado, sirviendo como ejemplos de mi habilidad y versatilidad. Además, la aplicación proporciona una opción para que los visitantes se pongan en contacto conmigo directamente, facilitando la interacción y la comunicación.",
+    tags: [
+      TAGS.Astro,
+      TAGS.Tailwind,
+      TAGS.Elastic,
+      TAGS.TypeScript,
+      TAGS.HTML,
+      TAGS.CSS,
+    ],
+    image: "/PortfolioProject.webp",
+    github: "https://github.com/MANR1996/AleDevPortfolio",
+    link: "/",
   },
 ];
 ---

@@ -50,6 +50,11 @@ const { title, description, tags, image, github, link } = Astro.props.project;
     transform: translateY(102%);
   }
 </style>
+<script is:inline>
+  function onClickEvent(event) {
+    window.open(event.target.getAttribute("data-parameter"), "_blank");
+  }
+</script>
 <article class="mb-20">
   <div class="flex gap-y-2 lg:flex-row flex-col lg:place-content-between mb-2">
     <a href={link} target="_blank" class="flex items-center">
@@ -70,25 +75,24 @@ const { title, description, tags, image, github, link } = Astro.props.project;
           <span
             class={`items-center bg-white flex gap-x-1 rounded-full text-sm py-1 px-2 border-2 ${tag.class}`}
           >
-            <tag.icon class="size-4" />
+            {typeof tag.icon == "function" && <tag.icon class="size-4" />}
             {tag.name}
           </span>
         </li>
       ))
     }
   </ul>
-  <a
-    href={link}
-    class="image-link"
-    target="_blank"
-    aria-label={`Visit the ${title} website - Opens in a new tab`}
-  >
-    <div class="image relative duration-[600ms] rounded" data-label="»">
+  <div onclick="onClickEvent(event)" class="image-link">
+    <div
+      class="image relative duration-[600ms] rounded"
+      data-parameter={link}
+      data-label="»"
+    >
       <img
         class="rounded shadow-2xl shadow-black/50"
         src={image}
         alt={`Screenshot project ${title}`}
       />
     </div>
-  </a>
+  </div>
 </article>

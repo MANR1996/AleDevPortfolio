@@ -31,9 +31,10 @@ const STATUS = {
   },
   WORKING: {
     text: "Working",
-    class: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 ",
+    class: "flex bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 ",
   },
 };
+const ACTUALSTATUS = STATUS.AVAILABLE;
 
 const SOCIALPROFILES = [
   {
@@ -222,15 +223,22 @@ function calculateAge(bornDate: Date) {
 </style>
 
 <Layout
-  title="Resume of AleDev. Desarrollador y Programador Web"
-  description=`Contrata a AleDev. Desarrollador y Programador Web con ${yearsOfExpertise} años de experiencia y sumando.`
+  title="AleDev's Portfolio. Web Developer"
+  description=`Let's contact, together we can create great things. I am a developer with ${yearsOfExpertise} years of experience in the world of Web.`
 >
   <main class="px-4">
     <SectionContainer class="lg:pt-44 pt-24 lg:pb-24 pb-12">
       <div class="flex items-center">
-        <a class="flex" href={`mailto:${MAIL}`}>
-          <Badge text={STATUS.AVAILABLE.text} class={STATUS.AVAILABLE.class} />
-        </a>
+        {
+          ACTUALSTATUS.text == STATUS.AVAILABLE.text ||
+          ACTUALSTATUS.text == STATUS.LISTING.text ? (
+            <a class="flex" href="#contact">
+              <Badge text={ACTUALSTATUS.text} class={ACTUALSTATUS.class} />
+            </a>
+          ) : (
+            <Badge text={ACTUALSTATUS.text} class={ACTUALSTATUS.class} />
+          )
+        }
       </div>
       <h1
         class="text-black sm:flex block text-3xl/[40px] sm:text-4xl/[50px] md:text-4xl/[70px] lg:text-5xl/[70px] font-bold flex-row gap-x-4 pb-4 whitespace-nowrap"

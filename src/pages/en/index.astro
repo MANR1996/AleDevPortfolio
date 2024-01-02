@@ -145,6 +145,13 @@ function calculateAge(bornDate: Date) {
         border-color: black;
       }
     }
+    @media (prefers-color-scheme: dark) {
+      @keyframes blink {
+        50% {
+          border-color: white;
+        }
+      }
+    }
     @keyframes text-anim {
       0% {
         margin-top: 0;
@@ -241,7 +248,7 @@ function calculateAge(bornDate: Date) {
         }
       </div>
       <h1
-        class="text-black sm:flex block text-3xl/[40px] sm:text-4xl/[50px] md:text-4xl/[70px] lg:text-5xl/[70px] font-bold flex-row gap-x-4 pb-4 whitespace-nowrap"
+        class="text-black sm:flex block text-3xl/[40px] sm:text-4xl/[50px] md:text-4xl/[70px] lg:text-5xl/[70px] font-bold flex-row gap-x-4 pb-4 whitespace-nowrap dark:text-white/80"
       >
         {t("site.presentation.title")}
         <div class="md:h-[70px] sm:h-[50px] h-[40px] overflow-hidden">
@@ -265,12 +272,14 @@ function calculateAge(bornDate: Date) {
         </div>
       </h1>
       <h2
-        class="lg:text-2xl text-xl opacity-50 mb-2 sm:text-nowrap sm:whitespace-nowrap max-w-[700px] typing-animation"
+        class="lg:text-2xl text-xl opacity-50 mb-2 sm:text-nowrap sm:whitespace-nowrap max-w-[700px] typing-animation dark:text-white/100 dark:opacity-80"
       >
-        <span class="text-blue-600/80"
+        <span class="text-blue-600/80 dark:text-blue-400"
           >{yearsOfExpertise} {t("site.years")}</span
         >
-        {t("site.experience.first")}<span class="text-blue-600/80">
+        {t("site.experience.first")}<span
+          class="text-blue-600/80 dark:text-blue-400"
+        >
           {t("site.experience.second")}</span
         >
         <!-- {t("site.location")} -->
@@ -287,7 +296,7 @@ function calculateAge(bornDate: Date) {
     </SectionContainer>
     <SectionContainer id="about" class="mb-24">
       <h2
-        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2"
+        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2 dark:opacity-100 dark:text-white"
       >
         <UserIcon class="size-6" />{t("site.sections.about")}
       </h2>
@@ -295,7 +304,7 @@ function calculateAge(bornDate: Date) {
     </SectionContainer>
     <SectionContainer id="experience" class="mb-24">
       <h2
-        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2"
+        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2 dark:opacity-100 dark:text-white"
       >
         <BriefCaseIcon class="size-6" />{t("site.sections.experience")}
       </h2>
@@ -303,7 +312,7 @@ function calculateAge(bornDate: Date) {
     </SectionContainer>
     <SectionContainer id="projects">
       <h2
-        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2"
+        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2 dark:opacity-100 dark:text-white"
       >
         <CodeIcon class="size-6" />{t("site.sections.projects")}
       </h2>
@@ -311,7 +320,7 @@ function calculateAge(bornDate: Date) {
     </SectionContainer>
     <SectionContainer id="contact" class="mb-24">
       <h2
-        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2"
+        class="opacity-70 text-2xl font-semibold mb-6 flex flex-row items-center gap-x-2 dark:opacity-100 dark:text-white"
       >
         <ContactIcon class="size-6" />{t("site.sections.contact")}
       </h2>

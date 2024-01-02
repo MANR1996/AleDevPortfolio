@@ -1,6 +1,7 @@
 ---
 import { t } from "i18next";
 import { LanguageSelector } from "astro-i18next/components";
+import LogoIcon from "./icons/Logo.astro";
 ---
 
 <style>
@@ -22,15 +23,13 @@ import { LanguageSelector } from "astro-i18next/components";
   }
 </style>
 <header
-  class="flex justify-between items-center py-6 w-full xl:w-[1120px] mx-auto fixed z-10 bg-white left-[50%] translate-x-[-50%] smaller"
+  class="flex justify-between items-center py-6 w-full xl:w-[1120px] mx-auto fixed z-10 bg-white left-[50%] translate-x-[-50%] smaller dark:bg-[#282c34]"
 >
-  <img
-    class="rounded-full size-12 border-2 border-black"
-    src="/logo.svg"
-    alt="aleDev-logo"
+  <LogoIcon
+    class="rounded-full size-12 border-2 border-black color-white dark:border-white/80"
   />
   <nav>
-    <ul class="flex flex-row gap-x-10 opacity-80 text-nowrap">
+    <ul class="flex flex-row gap-x-10 opacity-80 text-nowrap dark:text-white dark:opacity-100">
       <li class="hover:scale-125 transition">
         <a href="#start">{t("menu.home")}</a>
       </li>
@@ -46,7 +45,7 @@ import { LanguageSelector } from "astro-i18next/components";
       <li class="hover:scale-125 transition">
         <a href="#contact">{t("menu.contact")}</a>
       </li>
-      <li><LanguageSelector showFlag={true} class="my-select-class" /></li>
+      <li><LanguageSelector showFlag={true} class="dark:bg-[#282c34] dark:text-white/80" /></li>
     </ul>
   </nav>
 </header>

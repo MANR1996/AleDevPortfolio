@@ -7,12 +7,14 @@ Personal portfolio of Manuel Alejandro Naranjo Rey, Frontend Developer. A fully 
 
 ## Stack
 
-- **[Astro 4](https://astro.build)** — static site generation, zero JS by default
+- **[Astro 7](https://astro.build)** — static site generation, zero JS by default (requires **Node.js ≥ 22.12.0**)
 - **[astro-i18next](https://github.com/yassinedoghri/astro-i18next)** — locale routing (`/` for Spanish, `/en` for English) and server-side translations
-- **[Tailwind CSS 3](https://tailwindcss.com)** — styling, `media` dark mode strategy
+- **[Tailwind CSS 3](https://tailwindcss.com)** — styling via a plain PostCSS pipeline (`postcss.config.mjs` + `src/styles/global.css`), `media` dark mode strategy
 - **Fira Mono** — self-hosted via Fontsource (latin subset, weights 400/500/700)
 
 ## Getting started
+
+**Prerequisite:** Node.js 22.12.0 or newer (`node --version`). The Astro CLI refuses to run on older versions.
 
 ```sh
 git clone https://github.com/MANR1996/AleDevPortfolio.git
@@ -47,11 +49,13 @@ The build fails fast with a clear error if these variables are missing.
 │   └── *.webp              # Project screenshots
 ├── src/
 │   ├── components/         # UI components + icons/
-│   ├── config/site.ts       # Site data: profile links, status, nav
+│   ├── config/site.ts      # Site data: profile links, status, nav
 │   ├── layouts/Layout.astro
-│   ├── pages/               # index.astro (es), en/index.astro, 404.astro
+│   ├── pages/              # index.astro (es), en/index.astro, 404.astro
+│   ├── styles/global.css   # Tailwind entry point
 │   ├── types.ts             # Shared types (Tag, Project)
 │   └── utils/date.ts        # Career duration helpers
+├── postcss.config.mjs       # tailwindcss + autoprefixer
 └── astro-i18next.config.ts  # Locale definitions
 ```
 

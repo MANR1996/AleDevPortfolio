@@ -1,0 +1,286 @@
+---
+import i18next, { t } from "i18next";
+// @ts-ignore -- astro-i18next beta ships types that TypeScript cannot resolve through its "exports" map
+import { localizePath } from "astro-i18next";
+import GlobeIcon from "./icons/Globe.astro";
+
+interface LanguageOption {
+  code: string;
+  name: string;
+  flag: string;
+  href: string;
+  current: boolean;
+}
+
+const FLAGS: Record<string, string> = {
+  es: "🇪🇸",
+  en: "🇬🇧",
+};
+
+const NAMES: Record<string, string> = {
+  es: "Español",
+  en: "English",
+};
+
+const { pathname } = Astro.url;
+
+const languages: LanguageOption[] = (i18next.languages ?? []).map(
+  (code) => ({
+    code,
+    name: NAMES[code] ?? code,
+    flag: FLAGS[code] ?? "🌐",
+    href: localizePath(pathname, code),
+    current: code === i18next.language,
+  })
+);
+
+const currentLanguage =
+  languages.find((language) => language.current) ?? languages[0];
+---
+
+<div class="language-selector">
+  <button
+    type="button"
+    class="language-toggle"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-label={t("menu.language")}
+  >
+    <GlobeIcon class="size-5" />
+    <span class="uppercase">{currentLanguage?.code}</span>
+    <svg
+      class="language-chevron"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M6 9l6 6l6 -6"></path></svg
+    >
+  </button>
+
+  <ul class="language-menu" role="menu" aria-label={t("menu.language")}>
+    {
+      languages.map((language) => (
+        <li role="none">
+          <a
+            role="menuitem"
+            href={language.href}
+            aria-current={language.current ? "page" : undefined}
+            class="language-option"
+          >
+            <span class="language-flag" aria-hidden="true">
+              {language.flag}
+            </span>
+            <span class="language-name">{language.name}</span>
+            <span class="language-code">{language.code.toUpperCase()}</span>
+            {language.current && (
+              <svg
+                class="language-check"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M5 12l5 5l10 -10"></path></svg
+                >
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .language-selector {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .language-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0;
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .language-toggle:hover {
+    transform: scale(1.25);
+  }
+
+  .language-chevron {
+    width: 0.875rem;
+    height: 0.875rem;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .language-selector[data-open] .language-chevron {
+    transform: rotate(180deg);
+  }
+
+  .language-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 20;
+    margin-top: 0.5rem;
+    min-width: 11rem;
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    background: #fff;
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.95) translateY(-0.25rem);
+    transform-origin: top right;
+    transition:
+      opacity 150ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 150ms;
+  }
+  .language-selector[data-open] .language-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  .language-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition:
+      transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .language-option:hover {
+    transform: scale(1.1);
+    background: #f3f4f6;
+  }
+  .language-option[aria-current="page"] {
+    color: #2563eb;
+  }
+
+  .language-code {
+    display: none;
+  }
+
+  .language-check {
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .language-menu {
+      background: #1f2937;
+      border-color: #374151;
+    }
+    .language-option:hover {
+      background: #374151;
+    }
+    .language-option[aria-current="page"] {
+      color: #60a5fa;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .language-toggle {
+      display: none;
+    }
+
+    .language-menu {
+      position: static;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+      z-index: auto;
+    }
+
+    .language-option {
+      padding: 0;
+      border-radius: 0;
+    }
+    .language-option:hover {
+      transform: scale(1.25);
+      background: none;
+    }
+
+    .language-name,
+    .language-check {
+      display: none;
+    }
+
+    .language-code {
+      display: inline;
+    }
+  }
+</style>
+
+<script>
+  const SELECTOR_CLASS = ".language-selector";
+  const TOGGLE_CLASS = ".language-toggle";
+  const OPEN_ATTRIBUTE = "data-open";
+
+  const selectors = document.querySelectorAll<HTMLElement>(SELECTOR_CLASS);
+
+  selectors.forEach((selector) => {
+    const toggle = selector.querySelector<HTMLButtonElement>(TOGGLE_CLASS);
+    if (!toggle) return;
+
+    const open = (): void => {
+      selector.setAttribute(OPEN_ATTRIBUTE, "");
+      toggle.setAttribute("aria-expanded", "true");
+    };
+
+    const close = (): void => {
+      selector.removeAttribute(OPEN_ATTRIBUTE);
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", () => {
+      selector.hasAttribute(OPEN_ATTRIBUTE) ? close() : open();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!selector.contains(event.target as Node)) close();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      close();
+      if (selector.contains(document.activeElement)) toggle.focus();
+    });
+  });
+</script>

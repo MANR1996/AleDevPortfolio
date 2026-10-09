@@ -1,40 +1,42 @@
 ---
 import { t } from "i18next";
-const getYear = () => {
-  let date = new Date();
-  return date.getFullYear();
-};
-const YEAR = getYear();
+import { NAV_ITEMS } from "../config/site";
+
+const YEAR = new Date().getFullYear();
 ---
 
+<style>
+  ul {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+  }
+</style>
+
 <footer
-  class="bg-white rounded-lg m-4 dark:bg-[#282c34] w-full xl:w-[1120px] mx-auto"
+  class="m-4 mx-auto w-full rounded-lg bg-white xl:w-[1120px] dark:bg-surface"
 >
   <div
-    class="flex items-center justify-between py-6 w-full mx-auto max-w-screen-xl px-4 gap-x-4"
+    class="mx-auto flex w-full max-w-screen-xl items-center justify-between gap-x-4 px-4 py-6"
   >
     <span
-      class="text-sm text-center text-blue-600/80 border-blue-600/80 border-2 rounded-full w-[150px] py-1 px-2"
-      >© {YEAR} AleDev
-    </span>
-    <ul
-      class="flex text-nowrap items-center font-medium text-gray-500 dark:text-gray-400 gap-x-10"
+      class="w-[150px] rounded-full border-2 border-blue-600/80 px-2 py-1 text-center text-sm text-blue-600/80"
     >
-      <li>
-        <a href="#start">{t("menu.home")}</a>
-      </li>
-      <li>
-        <a href="#about">{t("menu.about")}</a>
-      </li>
-      <li>
-        <a href="#experience">{t("menu.experience")}</a>
-      </li>
-      <li>
-        <a href="#projects">{t("menu.projects")}</a>
-      </li>
-      <li>
-        <a href="#contact">{t("menu.contact")}</a>
-      </li>
-    </ul>
+      © {YEAR} AleDev
+    </span>
+    <nav aria-label={t("menu.footer")}>
+      <ul
+        class="flex items-center gap-x-10 font-medium text-gray-500 dark:text-gray-400"
+      >
+        {
+          NAV_ITEMS.map((item) => (
+            <li>
+              <a href={item.href}>{t(item.label)}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </div>
 </footer>

@@ -1,31 +1,19 @@
 ---
-import type { Code, Debug } from "astro:components";
-import ExperienceItem from "./ExperienceItem.astro";
 import { t } from "i18next";
-const EXPERIENCE = [
-  {
-    date: t("experience.first.date"),
-    name: t("experience.first.name"),
-    description: t("experience.first.description"),
-  },
-  {
-    date: t("experience.second.date"),
-    name: t("experience.second.name"),
-    description: t("experience.second.description"),
-  },
-  {
-    date: t("experience.third.date"),
-    name: t("experience.third.name"),
-    description: t("experience.third.description"),
-  },
-];
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = ["first", "second", "third"].map((key) => ({
+  date: t(`experience.${key}.date`),
+  name: t(`experience.${key}.name`),
+  description: t(`experience.${key}.description`),
+}));
 ---
 
 <ol class="relative border-s-2">
   {
-    EXPERIENCE.map((experience) => (
+    EXPERIENCE.map((item) => (
       <li class="mb-10 ms-4">
-        <ExperienceItem {...experience} />
+        <ExperienceItem {...item} />
       </li>
     ))
   }

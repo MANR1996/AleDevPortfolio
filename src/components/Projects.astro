@@ -1,103 +1,42 @@
 ---
+import { t } from "i18next";
+import AstroIcon from "./icons/AstroIcon.astro";
 import CSSIcon from "./icons/CSS.astro";
 import HTMLIcon from "./icons/HTML.astro";
-import MaterialUIIcon from "./icons/MaterialUI.astro";
-import ReactIcon from "./icons/React.astro";
-import RemixIcon from "./icons/Remix.astro";
-import TailwindIcon from "./icons/Tailwind.astro";
-import TypeScriptIcon from "./icons/TypeScript.astro";
-import RapidApiIcon from "./icons/RapidApi.astro";
-import AstroIcon from "./icons/AstroIcon.astro";
 import JavaScriptIcon from "./icons/JavaScript.astro";
 import JestIcon from "./icons/Jest.astro";
+import MaterialUIIcon from "./icons/MaterialUI.astro";
+import ProjectItem from "./ProjectItem.astro";
+import RapidApiIcon from "./icons/RapidApi.astro";
+import ReactIcon from "./icons/React.astro";
 import ReduxIcon from "./icons/Redux.astro";
+import RemixIcon from "./icons/Remix.astro";
 import StoryBookIcon from "./icons/StoryBook.astro";
 import StyledComponentsIcon from "./icons/StyledComponents.astro";
+import TailwindIcon from "./icons/Tailwind.astro";
+import TypeScriptIcon from "./icons/TypeScript.astro";
 import ViteIcon from "./icons/Vite.astro";
-import ProjectItem from "./ProjectItem.astro";
-import { t } from "i18next";
-const TAGS = {
-  HTML: {
-    name: "HTML 5",
-    class: "text-[#D5502B] border-[#D5502B]",
-    icon: HTMLIcon,
-  },
-  CSS: {
-    name: "CSS",
-    class: "text-[#1571AF] border-[#1571AF]",
-    icon: CSSIcon,
-  },
-  MaterialUI: {
-    name: "Material-UI",
-    class: "text-[#0A7CEF] border-[#0A7CEF]",
-    icon: MaterialUIIcon,
-  },
-  React: {
-    name: "ReactJS",
-    class: "text-[#0ACCEF] border-[#0ACCEF]",
-    icon: ReactIcon,
-  },
-  Remix: {
-    name: "Remix",
-    class: "text-[#1A1A1A] border-[#1A1A1A]",
-    icon: RemixIcon,
-  },
-  Tailwind: {
-    name: "Tailwind CSS",
-    class: "text-[#23A3B1] border-[#23A3B1]",
-    icon: TailwindIcon,
-  },
-  TypeScript: {
-    name: "TypeScript",
-    class: "text-[#3575BB] border-[#3575BB]",
-    icon: TypeScriptIcon,
-  },
-  RapidApi: {
-    name: "Rapid API",
-    class: "text-[#23456E] border-[#23456E]",
-    icon: RapidApiIcon,
-  },
-  JavaScript: {
-    name: "JavaScript",
-    class: "text-[#E2CF51] border-[#E2CF51]",
-    icon: JavaScriptIcon,
-  },
-  Elastic: {
-    name: "Elastic Email",
-    class: "text-[#2D2F7A] border-[#2D2F7A]",
-    icon: null,
-  },
-  Astro: {
-    name: "Astro",
-    class: "text-[#000000] border-[#EE5D0A]",
-    icon: AstroIcon,
-  },
-  Jest: {
-    name: "Jest",
-    class: "text-[#99425B] border-[#99425B]",
-    icon: JestIcon,
-  },
-  Redux: {
-    name: "Redux",
-    class: "text-[#764ABC] border-[#764ABC]",
-    icon: ReduxIcon,
-  },
-  StoryBook: {
-    name: "StoryBook",
-    class: "text-[#EF4A81] border-[#EF4A81]",
-    icon: StoryBookIcon,
-  },
-  StyledComponents: {
-    name: "StyledComponents",
-    class: "text-[#4A4A4A] border-[#FDD641]",
-    icon: StyledComponentsIcon,
-  },
-  Vite: {
-    name: "Vite",
-    class: "text-[#FFCF27] border-[#FFCF27]",
-    icon: ViteIcon,
-  },
+import type { Tag } from "../types";
+
+const TAGS: Record<string, Tag> = {
+  HTML: { name: "HTML 5", class: "border-[#D5502B] text-[#D5502B]", icon: HTMLIcon },
+  CSS: { name: "CSS", class: "border-[#1571AF] text-[#1571AF]", icon: CSSIcon },
+  MaterialUI: { name: "Material-UI", class: "border-[#0A7CEF] text-[#0A7CEF]", icon: MaterialUIIcon },
+  React: { name: "ReactJS", class: "border-[#0ACCEF] text-[#0ACCEF]", icon: ReactIcon },
+  Remix: { name: "Remix", class: "border-[#1A1A1A] text-[#1A1A1A]", icon: RemixIcon },
+  Tailwind: { name: "Tailwind CSS", class: "border-[#23A3B1] text-[#23A3B1]", icon: TailwindIcon },
+  TypeScript: { name: "TypeScript", class: "border-[#3575BB] text-[#3575BB]", icon: TypeScriptIcon },
+  RapidApi: { name: "Rapid API", class: "border-[#23456E] text-[#23456E]", icon: RapidApiIcon },
+  JavaScript: { name: "JavaScript", class: "border-[#E2CF51] text-[#E2CF51]", icon: JavaScriptIcon },
+  Elastic: { name: "Elastic Email", class: "border-[#2D2F7A] text-[#2D2F7A]" },
+  Astro: { name: "Astro", class: "border-[#EE5D0A] text-[#000000]", icon: AstroIcon },
+  Jest: { name: "Jest", class: "border-[#99425B] text-[#99425B]", icon: JestIcon },
+  Redux: { name: "Redux", class: "border-[#764ABC] text-[#764ABC]", icon: ReduxIcon },
+  StoryBook: { name: "StoryBook", class: "border-[#EF4A81] text-[#EF4A81]", icon: StoryBookIcon },
+  StyledComponents: { name: "StyledComponents", class: "border-[#FDD641] text-[#4A4A4A]", icon: StyledComponentsIcon },
+  Vite: { name: "Vite", class: "border-[#FFCF27] text-[#FFCF27]", icon: ViteIcon },
 };
+
 const PROJECTS = [
   {
     title: t("project.first.title"),
@@ -110,15 +49,7 @@ const PROJECTS = [
   {
     title: t("project.second.title"),
     description: t("project.second.description"),
-    tags: [
-      TAGS.Remix,
-      TAGS.React,
-      TAGS.Tailwind,
-      TAGS.TypeScript,
-      TAGS.RapidApi,
-      TAGS.HTML,
-      TAGS.CSS,
-    ],
+    tags: [TAGS.Remix, TAGS.React, TAGS.Tailwind, TAGS.TypeScript, TAGS.RapidApi, TAGS.HTML, TAGS.CSS],
     image: "/MovieProject.webp",
     github: "https://github.com/MANR1996/MovieApp",
     link: "https://movie-app-two-gray.vercel.app/topmovies",
@@ -126,14 +57,7 @@ const PROJECTS = [
   {
     title: t("project.third.title"),
     description: t("project.third.description"),
-    tags: [
-      TAGS.Astro,
-      TAGS.Tailwind,
-      TAGS.Elastic,
-      TAGS.TypeScript,
-      TAGS.HTML,
-      TAGS.CSS,
-    ],
+    tags: [TAGS.Astro, TAGS.Tailwind, TAGS.Elastic, TAGS.TypeScript, TAGS.HTML, TAGS.CSS],
     image: "/PortfolioProject.webp",
     github: "https://github.com/MANR1996/AleDevPortfolio",
     link: "/",
@@ -149,4 +73,8 @@ const PROJECTS = [
 ];
 ---
 
-{PROJECTS.map((project) => <ProjectItem project={project} />)}
+{
+  PROJECTS.map((project) => (
+    <ProjectItem project={project} />
+  ))
+}

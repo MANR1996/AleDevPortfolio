@@ -1,19 +1,20 @@
 ---
 import { t } from "i18next";
+
+const PARAGRAPHS = ["first", "second", "third", "fourth"].map((key) =>
+  t(`about.${key}`)
+);
 ---
 
-<h3 class="opacity-80 text-lg font-semibold text-gray-900 dark:text-white">
-  Manuel Alejandro Naranjo Rey
-</h3><br />
-<p class="text-base font-normal text-gray-500 dark:text-gray-400 text-pretty">
-  {t("about.first")}
-</p><br />
-<p class="text-base font-normal text-gray-500 dark:text-gray-400 text-pretty">
-  {t("about.second")}
-</p><br />
-<p class="text-base font-normal text-gray-500 dark:text-gray-400 text-pretty">
-  {t("about.third")}
-</p><br />
-<p class="text-base font-normal text-gray-500 dark:text-gray-400 text-pretty">
-  {t("about.fourth")}
-</p>
+<div class="space-y-6">
+  <h3 class="text-lg font-semibold text-gray-900 opacity-80 dark:text-white">
+    Manuel Alejandro Naranjo Rey
+  </h3>
+  {
+    PARAGRAPHS.map((paragraph) => (
+      <p class="text-pretty text-base font-normal text-gray-500 dark:text-gray-400">
+        {paragraph}
+      </p>
+    ))
+  }
+</div>

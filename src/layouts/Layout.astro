@@ -1,32 +1,38 @@
 ---
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import type { Locale } from "../config/site";
 import "@fontsource/fira-mono";
+
 interface Props {
+  lang: Locale;
   title: string;
   description: string;
 }
 
-const { title, description } = Astro.props;
+const { lang, title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="dark dark:bg-[#282c34]">
-    <div class="relative h-full w-full bg-white"></div>
+  <body class="bg-white dark:bg-surface">
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
+
 <style is:global>
   :root {
     color-scheme: light dark;
@@ -34,40 +40,23 @@ const { title, description } = Astro.props;
   html {
     font-family: "Fira Mono", system-ui, sans-serif;
   }
-  header {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    column-gap: 0.5rem;
-  }
   body {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* background: #050505; */
     min-height: 100vh;
     scroll-behavior: smooth;
   }
-
-  @media (max-width: 600px) {
-    header nav {
-      width: inherit;
-      overflow: auto;
-      height: 48px;
-      display: flex;
-      align-items: center;
-    }
-  }
-  footer ul {
-    /* width: inherit; */
-    overflow: auto;
-    height: 48px;
-    display: flex;
-    align-items: center;
-  }
-
-  @media (prefers-reduced-animation: reduce) {
-    body {
+  @media (prefers-reduced-motion: reduce) {
+    html {
       scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 </style>

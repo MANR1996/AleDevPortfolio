@@ -1,10 +1,24 @@
 ---
 import { t } from "i18next";
 import { LanguageSelector } from "astro-i18next/components";
+import { NAV_ITEMS } from "../config/site";
 import LogoIcon from "./icons/Logo.astro";
 ---
 
 <style>
+  header {
+    padding-inline: 0.5rem;
+    column-gap: 0.5rem;
+  }
+  @media (max-width: 600px) {
+    header nav {
+      width: inherit;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      overflow: auto;
+    }
+  }
   .smaller {
     animation: smaller-animation linear both;
     animation-timeline: scroll(root block);
@@ -22,30 +36,32 @@ import LogoIcon from "./icons/Logo.astro";
     }
   }
 </style>
+
 <header
-  class="flex justify-between items-center py-6 w-full xl:w-[1120px] mx-auto fixed z-10 bg-white left-[50%] translate-x-[-50%] smaller dark:bg-[#282c34]"
+  class="smaller fixed left-1/2 z-10 mx-auto flex w-full -translate-x-1/2 items-center justify-between bg-white py-6 xl:w-[1120px] dark:bg-surface"
 >
-  <LogoIcon
-    class="rounded-full size-12 border-2 border-black color-white dark:border-white/80"
-  />
-  <nav>
-    <ul class="flex flex-row gap-x-10 opacity-80 text-nowrap dark:text-white dark:opacity-100">
-      <li class="hover:scale-125 transition">
-        <a href="#start">{t("menu.home")}</a>
+  <a href="#start" aria-label={t("menu.home")}>
+    <LogoIcon
+      class="size-12 rounded-full border-2 border-black dark:border-white/80"
+    />
+  </a>
+  <nav aria-label={t("menu.navigation")}>
+    <ul
+      class="flex flex-row gap-x-10 opacity-80 dark:text-white dark:opacity-100"
+    >
+      {
+        NAV_ITEMS.map((item) => (
+          <li class="transition hover:scale-125">
+            <a href={item.href}>{t(item.label)}</a>
+          </li>
+        ))
+      }
+      <li>
+        <LanguageSelector
+          showFlag
+          class="dark:bg-surface dark:text-white/80"
+        />
       </li>
-      <li class="hover:scale-125 transition">
-        <a href="#about">{t("menu.about")}</a>
-      </li>
-      <li class="hover:scale-125 transition">
-        <a href="#experience">{t("menu.experience")}</a>
-      </li>
-      <li class="hover:scale-125 transition">
-        <a href="#projects">{t("menu.projects")}</a>
-      </li>
-      <li class="hover:scale-125 transition">
-        <a href="#contact">{t("menu.contact")}</a>
-      </li>
-      <li><LanguageSelector showFlag={true} class="dark:bg-[#282c34] dark:text-white/80" /></li>
     </ul>
   </nav>
 </header>

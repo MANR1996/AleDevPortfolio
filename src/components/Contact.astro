@@ -9,10 +9,12 @@ interface Props {
 }
 
 const { mail, phone } = Astro.props;
-const secureToken = import.meta.env.PUBLIC_SECURE_TOKEN;
 
 const INPUT_CLASS =
   "block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500";
+
+const FORM_ACTION = `https://formsubmit.co/${mail}`;
+const AJAX_ENDPOINT = `https://formsubmit.co/ajax/${mail}`;
 ---
 
 <style>
@@ -55,6 +57,22 @@ const INPUT_CLASS =
       scale: 1;
     }
   }
+
+  button[aria-busy="true"]::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 9999px;
+    animation: button-spinner 0.6s linear infinite;
+  }
+
+  @keyframes button-spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 </style>
 
 <div
@@ -65,7 +83,27 @@ const INPUT_CLASS =
   {t("contact.popUpMessage")}
 </div>
 
-<form id="contact-form" class="mb-6" data-token={secureToken} data-recipient={mail}>
+<form
+  id="contact-form"
+  class="mb-6"
+  action={FORM_ACTION}
+  method="POST"
+  data-endpoint={AJAX_ENDPOINT}
+>
+  <input type="hidden" name="_subject" value={t("contact.emailSubject")} />
+  <div class="mb-6">
+    <label for="name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+      {t("contact.name")}
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class={INPUT_CLASS}
+      placeholder={t("contact.namePlaceholder")}
+      required
+    />
+  </div>
   <div class="mb-6">
     <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
       {t("contact.email")}
@@ -76,19 +114,6 @@ const INPUT_CLASS =
       name="email"
       class={INPUT_CLASS}
       placeholder={t("contact.emailPlaceholder")}
-      required
-    />
-  </div>
-  <div class="mb-6">
-    <label for="subject" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-      {t("contact.subject")}
-    </label>
-    <input
-      type="text"
-      id="subject"
-      name="subject"
-      class={INPUT_CLASS}
-      placeholder={t("contact.subjectPlaceholder")}
       required
     />
   </div>
@@ -107,7 +132,9 @@ const INPUT_CLASS =
   </div>
   <button
     type="submit"
-    class="mb-2 block w-full rounded-lg bg-blue-600/80 px-5 py-2.5 text-center text-sm font-medium text-white transition hover:bg-blue-700/80 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    data-label={t("contact.submit")}
+    data-loading-label={t("contact.sending")}
+    class="mb-2 flex w-full items-center justify-center gap-x-2 rounded-lg bg-blue-600/80 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700/80 focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
   >
     {t("contact.submit")}
   </button>
@@ -126,21 +153,15 @@ const INPUT_CLASS =
   </a>
 </p>
 
-<script is:inline src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
-  declare global {
-    interface Window {
-      Email?: {
-        send: (options: Record<string, string>) => Promise<unknown>;
-      };
-    }
-  }
-
   const FORM_SELECTOR = "#contact-form";
   const NOTIFICATION_ID = "contact-notification";
   const NOTIFICATION_DURATION_MS = 5000;
 
   const form = document.querySelector<HTMLFormElement>(FORM_SELECTOR);
+  const submitButton = form?.querySelector<HTMLButtonElement>(
+    "button[type='submit']"
+  );
 
   function showNotification(): void {
     const notification = document.getElementById(NOTIFICATION_ID);
@@ -153,22 +174,40 @@ const INPUT_CLASS =
     }, NOTIFICATION_DURATION_MS);
   }
 
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const fields = new FormData(form);
-    const email = String(fields.get("email") ?? "");
-    const subject = String(fields.get("subject") ?? "");
-    const message = String(fields.get("message") ?? "");
+  function setLoading(isLoading: boolean): void {
+    if (!submitButton) return;
+    submitButton.disabled = isLoading;
+    if (isLoading) {
+      submitButton.setAttribute("aria-busy", "true");
+    } else {
+      submitButton.removeAttribute("aria-busy");
+    }
+    submitButton.textContent = isLoading
+      ? submitButton.dataset.loadingLabel ?? ""
+      : submitButton.dataset.label ?? "";
+  }
 
-    window.Email?.send({
-      SecureToken: form.dataset.token ?? "",
-      To: form.dataset.recipient ?? "",
-      From: form.dataset.recipient ?? "",
-      Subject: subject,
-      Body: `Correo: ${email}\nAsunto: ${subject}\nMensaje: ${message}`,
-    }).then(() => {
-      form.reset();
-      showNotification();
-    });
+  let isSubmitting = false;
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (isSubmitting) return;
+    isSubmitting = true;
+    setLoading(true);
+    try {
+      const response = await fetch(form.dataset.endpoint ?? "", {
+        method: "POST",
+        body: new FormData(form),
+      });
+      if (response.ok) {
+        form.reset();
+        showNotification();
+      }
+    } catch {
+      return;
+    } finally {
+      isSubmitting = false;
+      setLoading(false);
+    }
   });
 </script>

@@ -46,14 +46,16 @@
     "fourth": "Espero tener la oportunidad de llevar mi experiencia y habilidades a un nuevo desafío en el campo de la informática."
   },
   "contact": {
+    "name": "Tu nombre",
+    "namePlaceholder": "Tu nombre...",
     "email": "Tu email",
     "emailPlaceholder": "nombre@compañia.com",
-    "subject": "Asunto",
-    "subjectPlaceholder": "Déjame saber en qué puedo ayudarte",
     "message": "Tu mensaje",
     "messagePlaceholder": "Tu mensaje...",
     "submit": "Enviar mensaje",
-    "popUpMessage": "¡Gracias por contactarme!"
+    "sending": "Enviando...",
+    "popUpMessage": "¡Gracias por contactarme!",
+    "emailSubject": "Nuevo mensaje del portfolio"
   },
   "githubMessage": "Ver en Github",
   "experience": {

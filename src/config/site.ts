@@ -1,10 +1,18 @@
+const { PUBLIC_MAIL: mail, PUBLIC_PHONE: phone } = import.meta.env;
+
+if (!mail || !phone) {
+  throw new Error(
+    "Missing PUBLIC_MAIL or PUBLIC_PHONE environment variables. Copy .env.example to .env and fill in the values."
+  );
+}
+
 export type Locale = "es" | "en";
 
 export type StatusKey = "available" | "listing" | "working";
 
 export const SITE = {
-  mail: "alecuba96@gmail.com",
-  phone: "+34 600 96 28 35",
+  mail,
+  phone,
   careerStart: "2018-09-01",
   profiles: {
     linkedin: "https://www.linkedin.com/in/manuel-alejandro-naranjo-rey",

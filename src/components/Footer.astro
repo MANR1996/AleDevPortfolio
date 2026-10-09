@@ -5,20 +5,11 @@ import { NAV_ITEMS } from "../config/site";
 const YEAR = new Date().getFullYear();
 ---
 
-<style>
-  ul {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    overflow: auto;
-  }
-</style>
-
 <footer
   class="m-4 mx-auto w-full rounded-lg bg-white xl:w-[1120px] dark:bg-surface"
 >
   <div
-    class="mx-auto flex w-full max-w-screen-xl items-center justify-between gap-x-4 px-4 py-6"
+    class="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center gap-4 px-4 py-6 sm:flex-row sm:justify-between"
   >
     <span
       class="w-[150px] rounded-full border-2 border-blue-600/80 px-2 py-1 text-center text-sm text-blue-600/80"
@@ -27,12 +18,14 @@ const YEAR = new Date().getFullYear();
     </span>
     <nav aria-label={t("menu.footer")}>
       <ul
-        class="flex items-center gap-x-10 font-medium text-gray-500 dark:text-gray-400"
+        class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-medium text-gray-500 dark:text-gray-400 md:gap-x-10 md:text-base"
       >
         {
           NAV_ITEMS.map((item) => (
             <li>
-              <a href={item.href}>{t(item.label)}</a>
+              <a href={item.href} class="whitespace-nowrap">
+                {t(item.label)}
+              </a>
             </li>
           ))
         }

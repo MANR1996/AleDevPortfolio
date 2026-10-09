@@ -18,6 +18,7 @@
       }
     },
     "years": " years of experience",
+    "jobTitle": "Web Developer",
     "experience": {
       "first": "  in Web Development ",
       "second": "and counting."
@@ -38,7 +39,8 @@
     "navigation": "Primary navigation",
     "social": "Social profiles",
     "footer": "Footer navigation",
-    "language": "Language"
+    "language": "Language",
+    "skip": "Skip to main content"
   },
   "about": {
     "first": "I began my journey in the field of computer science in 2014, exploring various areas before specializing in web development (specifically in the frontend profile) and artificial intelligence (with a focus on machine learning). I have always enjoyed facing professional challenges and seeking innovative solutions, and I take pride in my high level of commitment to the tasks assigned to me.",
@@ -56,22 +58,26 @@
     "submit": "Send message",
     "sending": "Sending...",
     "popUpMessage": "Thank you for contacting me!",
+    "popUpMessageError": "Oops! Something went wrong, please try again.",
     "emailSubject": "New portfolio message"
   },
   "githubMessage": "View on Github",
   "experience": {
     "first": {
-      "date": "January 2019 - September 2023",
+      "from": "January 2019",
+      "to": "September 2023",
       "name": "Professor at the University of Matanzas.",
       "description": "I taught Web Programming and Artificial Intelligence, two fascinating and constantly evolving fields. During this time, I not only taught, but also learned a lot from my students, which allowed me to grow both personally and professionally. In addition to my teaching duties, I was actively involved in the development of several innovative projects in these areas. This experience allowed me to apply and expand my theoretical knowledge, while giving me the opportunity to contribute to the advancement of these disciplines. My participation in these projects has been an integral part of my career and has reinforced my passion for teaching and development."
     },
     "second": {
-      "date": "September 2019 - October 2019",
+      "from": "September 2019",
+      "to": "October 2019",
       "name": "Designer and developer of the AMB Septic Tank website.",
       "description": "I had the opportunity to design and develop the website for a thriving septic business located in Miami, Florida. Despite being a static and simple website, its intuitive and easy-to-navigate design proved to be a valuable asset for the business. This project not only improved the online visibility of the business, but also boosted its reach to a wider audience. The implementation of this website marked a milestone in the business's trajectory, providing it with a significant boost. My contribution to the success of this business through web design and development has been a rewarding and enriching experience."
     },
     "third": {
-      "date": "September 2020 - Present",
+      "from": "September 2020",
+      "to": "Present",
       "name": "Developer at Green Island Solution",
       "description": "I currently work as a frontend developer at a prestigious company that provides services to PartsBase Inc., a renowned corporation based in North America. My main role is to create and optimize attractive and functional user interfaces. Working closely with PartsBase Inc., we strive to continuously improve the user experience, which in turn helps us maintain our position as a leader in our field."
     }

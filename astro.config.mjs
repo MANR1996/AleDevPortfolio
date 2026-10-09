@@ -1,8 +1,18 @@
 import { defineConfig } from 'astro/config';
 import astroI18next from "astro-i18next";
+import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [astroI18next(), tailwind()]
+  site: 'https://ale-dev-portfolio.vercel.app',
+  integrations: [astroI18next(), tailwind(), sitemap({
+    filter: (page) => !page.includes('404'),
+    serialize: (item) => {
+      if (!item.url.endsWith('/')) {
+        item.url += '/';
+      }
+      return item;
+    },
+  })],
 });

@@ -11,6 +11,7 @@ export type Locale = "es" | "en";
 export type StatusKey = "available" | "listing" | "working";
 
 export const SITE = {
+  name: "Manuel Alejandro Naranjo Rey",
   mail,
   phone,
   careerStart: "2018-09-01",

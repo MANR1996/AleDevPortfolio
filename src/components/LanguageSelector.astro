@@ -3,21 +3,22 @@ import i18next, { t } from "i18next";
 // @ts-ignore -- astro-i18next beta ships types that TypeScript cannot resolve through its "exports" map
 import { localizePath } from "astro-i18next";
 import GlobeIcon from "./icons/Globe.astro";
+import type { Locale } from "../config/site";
 
 interface LanguageOption {
-  code: string;
+  code: Locale;
   name: string;
   flag: string;
   href: string;
   current: boolean;
 }
 
-const FLAGS: Record<string, string> = {
+const FLAGS: Record<Locale, string> = {
   es: "🇪🇸",
   en: "🇬🇧",
 };
 
-const NAMES: Record<string, string> = {
+const NAMES: Record<Locale, string> = {
   es: "Español",
   en: "English",
 };
@@ -26,9 +27,9 @@ const { pathname } = Astro.url;
 
 const languages: LanguageOption[] = (i18next.languages ?? []).map(
   (code) => ({
-    code,
-    name: NAMES[code] ?? code,
-    flag: FLAGS[code] ?? "🌐",
+    code: code as Locale,
+    name: NAMES[code as Locale] ?? code,
+    flag: FLAGS[code as Locale] ?? "🌐",
     href: localizePath(pathname, code),
     current: code === i18next.language,
   })
@@ -42,9 +43,8 @@ const currentLanguage =
   <button
     type="button"
     class="language-toggle"
-    aria-haspopup="menu"
     aria-expanded="false"
-    aria-label={t("menu.language")}
+    aria-label={`${t("menu.language")}: ${currentLanguage?.name ?? ""}`}
   >
     <GlobeIcon class="size-5" />
     <span class="uppercase">{currentLanguage?.code}</span>
@@ -65,12 +65,11 @@ const currentLanguage =
     >
   </button>
 
-  <ul class="language-menu" role="menu" aria-label={t("menu.language")}>
+  <ul class="language-menu" aria-label={t("menu.language")}>
     {
       languages.map((language) => (
-        <li role="none">
+        <li>
           <a
-            role="menuitem"
             href={language.href}
             aria-current={language.current ? "page" : undefined}
             class="language-option"
@@ -205,7 +204,7 @@ const currentLanguage =
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767.98px) {
     .language-toggle {
       display: none;
     }

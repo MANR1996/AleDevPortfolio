@@ -2,8 +2,17 @@
 import { t } from "i18next";
 import ExperienceItem from "./ExperienceItem.astro";
 
-const EXPERIENCE = ["first", "second", "third"].map((key) => ({
-  date: t(`experience.${key}.date`),
+const EXPERIENCE = [
+  { key: "first", fromIso: "2019-01", toIso: "2023-09" },
+  { key: "second", fromIso: "2019-09", toIso: "2019-10" },
+  { key: "third", fromIso: "2020-09", toIso: null },
+] as const;
+
+const items = EXPERIENCE.map(({ key, fromIso, toIso }) => ({
+  dateFrom: t(`experience.${key}.from`),
+  dateTo: t(`experience.${key}.to`),
+  fromIso,
+  toIso,
   name: t(`experience.${key}.name`),
   description: t(`experience.${key}.description`),
 }));
@@ -11,7 +20,7 @@ const EXPERIENCE = ["first", "second", "third"].map((key) => ({
 
 <ol class="relative border-s-2">
   {
-    EXPERIENCE.map((item) => (
+    items.map((item) => (
       <li class="mb-10 ms-4">
         <ExperienceItem {...item} />
       </li>

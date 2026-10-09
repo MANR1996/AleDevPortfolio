@@ -43,8 +43,35 @@ const AJAX_ENDPOINT = `https://formsubmit.co/ajax/${mail}`;
   }
 
   .notification {
+    position: fixed;
+    bottom: 40px;
+    right: 25px;
+    z-index: 50;
     display: flex;
+    height: 50px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: rgb(37 99 235 / 0.8);
+    color: white;
+    font-size: 0.875rem;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease-out;
+  }
+  @media (min-width: 640px) {
+    .notification {
+      width: 340px;
+    }
+  }
+  .notification[data-open] {
+    opacity: 1;
     animation: notification-pop 0.3s ease-out both;
+  }
+  .notification[data-variant="error"] {
+    background-color: rgb(220 38 38 / 0.9);
   }
 
   @keyframes notification-pop {
@@ -78,9 +105,10 @@ const AJAX_ENDPOINT = `https://formsubmit.co/ajax/${mail}`;
 <div
   id="contact-notification"
   role="status"
-  class="fixed bottom-[40px] right-[25px] hidden h-[50px] w-[250px] items-center justify-center rounded-full bg-blue-600/80 text-white sm:w-[340px]"
+  class="notification"
+  data-success-message={t("contact.popUpMessage")}
+  data-error-message={t("contact.popUpMessageError")}
 >
-  {t("contact.popUpMessage")}
 </div>
 
 <form
@@ -91,6 +119,15 @@ const AJAX_ENDPOINT = `https://formsubmit.co/ajax/${mail}`;
   data-endpoint={AJAX_ENDPOINT}
 >
   <input type="hidden" name="_subject" value={t("contact.emailSubject")} />
+  <input type="hidden" name="_template" value="table" />
+  <input
+    type="text"
+    name="_honey"
+    class="hidden"
+    tabindex="-1"
+    autocomplete="off"
+    aria-hidden="true"
+  />
   <div class="mb-6">
     <label for="name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
       {t("contact.name")}
@@ -163,14 +200,26 @@ const AJAX_ENDPOINT = `https://formsubmit.co/ajax/${mail}`;
     "button[type='submit']"
   );
 
-  function showNotification(): void {
+  type NotificationVariant = "success" | "error";
+  type FormSubmitResponse = { success?: string };
+
+  let hideTimer: ReturnType<typeof setTimeout> | undefined;
+
+  function showNotification(variant: NotificationVariant): void {
     const notification = document.getElementById(NOTIFICATION_ID);
     if (!notification) return;
-    notification.classList.remove("hidden");
-    notification.classList.add("notification");
-    setTimeout(() => {
-      notification.classList.add("hidden");
-      notification.classList.remove("notification");
+
+    const message =
+      variant === "error"
+        ? notification.dataset.errorMessage
+        : notification.dataset.successMessage;
+    notification.textContent = message ?? "";
+    notification.dataset.variant = variant;
+    notification.setAttribute("data-open", "");
+
+    if (hideTimer !== undefined) clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      notification.removeAttribute("data-open");
     }, NOTIFICATION_DURATION_MS);
   }
 
@@ -191,20 +240,29 @@ const AJAX_ENDPOINT = `https://formsubmit.co/ajax/${mail}`;
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (isSubmitting) return;
+    if (!form || !form.dataset.endpoint || isSubmitting) return;
+
     isSubmitting = true;
     setLoading(true);
     try {
-      const response = await fetch(form.dataset.endpoint ?? "", {
+      const response = await fetch(form.dataset.endpoint, {
         method: "POST",
-        body: new FormData(form),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
-      if (response.ok) {
-        form.reset();
-        showNotification();
+      const data = (await response.json().catch(() => null)) as
+        | FormSubmitResponse
+        | null;
+      if (!response.ok || data?.success === "false") {
+        throw new Error("Contact form submission was rejected");
       }
+      form.reset();
+      showNotification("success");
     } catch {
-      return;
+      showNotification("error");
     } finally {
       isSubmitting = false;
       setLoading(false);

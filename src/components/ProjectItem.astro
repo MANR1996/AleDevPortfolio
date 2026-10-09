@@ -1,17 +1,10 @@
 ---
 import { t } from "i18next";
 import GitHubBtn from "./GitHubBtn.astro";
-import type { Tag } from "../types";
+import type { Project } from "../types";
 
 interface Props {
-  project: {
-    title: string;
-    description: string;
-    tags: Tag[];
-    image: string;
-    github: string;
-    link: string;
-  };
+  project: Project;
 }
 
 const { title, description, tags, image, github, link } = Astro.props.project;
@@ -97,7 +90,7 @@ const { title, description, tags, image, github, link } = Astro.props.project;
     }
   </ul>
   <a href={link} target="_blank" rel="noopener noreferrer" class="image-link block">
-    <div class="image relative rounded duration-[600ms]" data-label="»">
+    <div class="image relative rounded transition-transform duration-[600ms]" data-label="»">
       <img
         class="rounded shadow-2xl shadow-white/30"
         src={image}

@@ -1,16 +1,46 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import { t } from "i18next";
 import type { Locale } from "../config/site";
-import "@fontsource/fira-mono";
+import "@fontsource/fira-mono/latin-400.css";
+import "@fontsource/fira-mono/latin-500.css";
+import "@fontsource/fira-mono/latin-700.css";
 
 interface Props {
   lang: Locale;
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, noindex = false } = Astro.props;
+
+const OG_LOCALES: Record<Locale, string> = {
+  es: "es_ES",
+  en: "en_US",
+};
+
+const LOCALE_PATHS: Record<Locale, string> = {
+  es: "/",
+  en: "/en/",
+};
+
+const alternateLocale: Locale = lang === "es" ? "en" : "es";
+const site = Astro.site;
+
+const urls = site
+  ? {
+      localized: {
+        es: new URL(LOCALE_PATHS.es, site).href,
+        en: new URL(LOCALE_PATHS.en, site).href,
+      },
+      canonical: new URL(LOCALE_PATHS[lang], site).href,
+      ogImage: new URL("/og-image.jpg", site).href,
+    }
+  : undefined;
+
+const isIndexable = !noindex && urls !== undefined;
 ---
 
 <!doctype html>
@@ -20,13 +50,42 @@ const { lang, title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#282c34" media="(prefers-color-scheme: dark)" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AleDev" />
+    <meta property="og:locale" content={OG_LOCALES[lang]} />
+    <meta property="og:locale:alternate" content={OG_LOCALES[alternateLocale]} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    {
+      isIndexable && urls && (
+        <>
+          <link rel="canonical" href={urls.canonical} />
+          <link rel="alternate" hreflang="es" href={urls.localized.es} />
+          <link rel="alternate" hreflang="en" href={urls.localized.en} />
+          <link rel="alternate" hreflang="x-default" href={urls.localized.es} />
+          <meta property="og:url" content={urls.canonical} />
+          <meta property="og:image" content={urls.ogImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={title} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content={urls.ogImage} />
+        </>
+      )
+    }
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body class="bg-white dark:bg-surface">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+    >
+      {t("menu.skip")}
+    </a>
     <Header />
     <slot />
     <Footer />
@@ -38,13 +97,13 @@ const { lang, title, description } = Astro.props;
     color-scheme: light dark;
   }
   html {
-    font-family: "Fira Mono", system-ui, sans-serif;
+    font-family: "Fira Mono", ui-monospace, monospace;
+    scroll-behavior: smooth;
   }
   body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    scroll-behavior: smooth;
   }
   @media (prefers-reduced-motion: reduce) {
     html {

@@ -18,6 +18,7 @@
       }
     },
     "years": " años de experiencia",
+    "jobTitle": "Desarrollador Web",
     "experience": {
       "first": "  en Desarrollo Web ",
       "second": "y sumando."
@@ -38,7 +39,8 @@
     "navigation": "Navegación principal",
     "social": "Redes sociales",
     "footer": "Navegación de pie de página",
-    "language": "Idioma"
+    "language": "Idioma",
+    "skip": "Saltar al contenido principal"
   },
   "about": {
     "first": "Comencé mi viaje en el campo de la informática en 2014, explorando diversas áreas antes de especializarme en desarrollo web (específicamente en el perfil frontend) e inteligencia artificial (con un enfoque en machine learning). Siempre he disfrutado enfrentándome a desafíos profesionales y buscando soluciones innovadoras, y me enorgullece mi alto nivel de compromiso con las tareas que se me asignan.",
@@ -56,22 +58,26 @@
     "submit": "Enviar mensaje",
     "sending": "Enviando...",
     "popUpMessage": "¡Gracias por contactarme!",
+    "popUpMessageError": "¡Ups! Algo salió mal, inténtalo de nuevo.",
     "emailSubject": "Nuevo mensaje del portfolio"
   },
   "githubMessage": "Ver en Github",
   "experience": {
     "first": {
-      "date": "Enero 2019 - Septiembre 2023",
+      "from": "Enero 2019",
+      "to": "Septiembre 2023",
       "name": "Profesor en Universidad de Matanzas.",
       "description": "Impartí clases de Programación Web e Inteligencia Artificial, dos campos fascinantes y en constante evolución. Durante este tiempo, no sólo enseñé, sino que también aprendí mucho de mis estudiantes, lo que me permitió crecer tanto personal como profesionalmente. Además de mi labor docente, estuve activamente involucrado en el desarrollo de varios proyectos innovadores en estas áreas. Esta experiencia me permitió aplicar y ampliar mis conocimientos teóricos, al tiempo que me brindó la oportunidad de contribuir al avance de estas disciplinas. Mi participación en estos proyectos ha sido una parte integral de mi carrera y ha reforzado mi pasión por la enseñanza y el desarrollo."
     },
     "second": {
-      "date": "Septiembre 2019 - Octubre 2019",
+      "from": "Septiembre 2019",
+      "to": "Octubre 2019",
       "name": "Diseñador y desarrollador de la web de AMB Septic Tank.",
       "description": "Tuve la oportunidad de diseñar y desarrollar el sitio web para un próspero negocio séptico ubicado en Miami, Florida. A pesar de ser una web estática y simple, su diseño intuitivo y fácil de navegar resultó ser un activo valioso para el negocio. Este proyecto no sólo mejoró la visibilidad online del negocio, sino que también impulsó su alcance a un público más amplio. La implementación de este sitio web marcó un hito en la trayectoria del negocio, proporcionándole un impulso significativo. Mi contribución al éxito de este negocio a través del diseño y desarrollo web ha sido una experiencia gratificante y enriquecedora."
     },
     "third": {
-      "date": "Septiembre 2020 - Actualidad",
+      "from": "Septiembre 2020",
+      "to": "Actualidad",
       "name": "Desarrollador de Green Island Solution",
       "description": "Actualmente me desempeño como desarrollador frontend en una prestigiosa empresa que proporciona servicios a PartsBase Inc., una reconocida corporación con sede en Norteamérica. Mi papel principal es crear y optimizar interfaces de usuario atractivas y funcionales. Trabajando en estrecha colaboración con PartsBase Inc., nos esforzamos por mejorar continuamente la experiencia del usuario, lo que a su vez nos ayuda a mantener la posición como líder en nuestro campo."
     }

@@ -1,11 +1,14 @@
 ---
 interface Props {
-  date: string;
+  dateFrom: string;
+  dateTo: string;
+  fromIso: string;
+  toIso: string | null;
   name: string;
   description: string;
 }
 
-const { date, name, description } = Astro.props;
+const { dateFrom, dateTo, fromIso, toIso, name, description } = Astro.props;
 ---
 
 <style>
@@ -30,11 +33,13 @@ const { date, name, description } = Astro.props;
   class="absolute -start-1.5 mt-1.5 size-3 rounded-full border border-white bg-blue-600/80 opacity-50 dark:border-white dark:bg-white dark:opacity-100"
 >
 </div>
-<time
+<p
   class="fadein-animation mb-1 text-sm font-normal leading-none text-gray-400 dark:text-white/80"
 >
-  {date}
-</time>
+  <time datetime={fromIso}>{dateFrom}</time>
+  <span aria-hidden="true"> - </span>
+  {toIso ? <time datetime={toIso}>{dateTo}</time> : <span>{dateTo}</span>}
+</p>
 <h3
   class="fadein-animation text-lg font-semibold text-gray-900 opacity-80 dark:text-white"
 >

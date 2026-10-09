@@ -1,5 +1,8 @@
 ---
 import { t } from "i18next";
+import i18next from "i18next";
+// @ts-ignore -- astro-i18next beta ships types that TypeScript cannot resolve through its "exports" map
+import { localizePath } from "astro-i18next";
 import AstroIcon from "./icons/AstroIcon.astro";
 import CSSIcon from "./icons/CSS.astro";
 import HTMLIcon from "./icons/HTML.astro";
@@ -16,9 +19,9 @@ import StyledComponentsIcon from "./icons/StyledComponents.astro";
 import TailwindIcon from "./icons/Tailwind.astro";
 import TypeScriptIcon from "./icons/TypeScript.astro";
 import ViteIcon from "./icons/Vite.astro";
-import type { Tag } from "../types";
+import type { Tag, Project } from "../types";
 
-const TAGS: Record<string, Tag> = {
+const TAGS = {
   HTML: { name: "HTML 5", class: "border-[#D5502B] text-[#D5502B]", icon: HTMLIcon },
   CSS: { name: "CSS", class: "border-[#1571AF] text-[#1571AF]", icon: CSSIcon },
   MaterialUI: { name: "Material-UI", class: "border-[#0A7CEF] text-[#0A7CEF]", icon: MaterialUIIcon },
@@ -29,15 +32,17 @@ const TAGS: Record<string, Tag> = {
   RapidApi: { name: "Rapid API", class: "border-[#23456E] text-[#23456E]", icon: RapidApiIcon },
   JavaScript: { name: "JavaScript", class: "border-[#E2CF51] text-[#E2CF51]", icon: JavaScriptIcon },
   Elastic: { name: "Elastic Email", class: "border-[#2D2F7A] text-[#2D2F7A]" },
-  Astro: { name: "Astro", class: "border-[#EE5D0A] text-[#000000]", icon: AstroIcon },
+  Astro: { name: "Astro", class: "border-[#EE5D0A] text-black", icon: AstroIcon },
   Jest: { name: "Jest", class: "border-[#99425B] text-[#99425B]", icon: JestIcon },
   Redux: { name: "Redux", class: "border-[#764ABC] text-[#764ABC]", icon: ReduxIcon },
   StoryBook: { name: "StoryBook", class: "border-[#EF4A81] text-[#EF4A81]", icon: StoryBookIcon },
   StyledComponents: { name: "StyledComponents", class: "border-[#FDD641] text-[#4A4A4A]", icon: StyledComponentsIcon },
   Vite: { name: "Vite", class: "border-[#FFCF27] text-[#FFCF27]", icon: ViteIcon },
-};
+} satisfies Record<string, Tag>;
 
-const PROJECTS = [
+const locale = i18next.language ?? "es";
+
+const PROJECTS: Project[] = [
   {
     title: t("project.first.title"),
     description: t("project.first.description"),
@@ -60,7 +65,7 @@ const PROJECTS = [
     tags: [TAGS.Astro, TAGS.Tailwind, TAGS.Elastic, TAGS.TypeScript, TAGS.HTML, TAGS.CSS],
     image: "/PortfolioProject.webp",
     github: "https://github.com/MANR1996/AleDevPortfolio",
-    link: "/",
+    link: localizePath("/", locale),
   },
   {
     title: t("project.fourth.title"),

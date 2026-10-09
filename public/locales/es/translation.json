@@ -40,6 +40,8 @@
     "social": "Redes sociales",
     "footer": "Navegación de pie de página",
     "language": "Idioma",
+    "themeDark": "Cambiar a modo oscuro",
+    "themeLight": "Cambiar a modo claro",
     "skip": "Saltar al contenido principal"
   },
   "about": {

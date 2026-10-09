@@ -191,17 +191,15 @@ const currentLanguage =
     margin-left: auto;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .language-menu {
-      background: #1f2937;
-      border-color: #374151;
-    }
-    .language-option:hover {
-      background: #374151;
-    }
-    .language-option[aria-current="page"] {
-      color: #60a5fa;
-    }
+  :global(html.dark) .language-menu {
+    background: #1f2937;
+    border-color: #374151;
+  }
+  :global(html.dark) .language-option:hover {
+    background: #374151;
+  }
+  :global(html.dark) .language-option[aria-current="page"] {
+    color: #60a5fa;
   }
 
   @media (max-width: 767.98px) {

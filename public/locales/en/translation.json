@@ -40,6 +40,8 @@
     "social": "Social profiles",
     "footer": "Footer navigation",
     "language": "Language",
+    "themeDark": "Switch to dark mode",
+    "themeLight": "Switch to light mode",
     "skip": "Skip to main content"
   },
   "about": {

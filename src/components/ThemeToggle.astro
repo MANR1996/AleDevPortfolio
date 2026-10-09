@@ -1,0 +1,91 @@
+---
+import { t } from "i18next";
+import MoonIcon from "./icons/Moon.astro";
+import SunIcon from "./icons/Sun.astro";
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  aria-label={t("menu.themeDark")}
+  data-label-dark={t("menu.themeDark")}
+  data-label-light={t("menu.themeLight")}
+>
+  <MoonIcon class="size-5 dark:hidden" />
+  <SunIcon class="hidden size-5 dark:block" />
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme-toggle:hover {
+    transform: scale(1.25);
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = "theme";
+  const DARK_CLASS = "dark";
+  const DARK_COLOR = "#282c34";
+  const LIGHT_COLOR = "#ffffff";
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".theme-toggle");
+
+  const isDark = (): boolean =>
+    document.documentElement.classList.contains(DARK_CLASS);
+
+  const getStoredTheme = (): string | null => {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch {
+      return null;
+    }
+  };
+
+  const applyTheme = (dark: boolean): void => {
+    document.documentElement.classList.toggle(DARK_CLASS, dark);
+    document
+      .querySelectorAll('meta[name="theme-color"]')
+      .forEach((meta) =>
+        meta.setAttribute("content", dark ? DARK_COLOR : LIGHT_COLOR)
+      );
+  };
+
+  const updateButtons = (): void => {
+    const dark = isDark();
+    buttons.forEach((button) => {
+      const label = dark ? button.dataset.labelLight : button.dataset.labelDark;
+      if (label) button.setAttribute("aria-label", label);
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const dark = !isDark();
+      applyTheme(dark);
+      try {
+        localStorage.setItem(STORAGE_KEY, dark ? "dark" : "light");
+      } catch {}
+      updateButtons();
+    });
+  });
+
+  updateButtons();
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      if (getStoredTheme()) return;
+      applyTheme(event.matches);
+      updateButtons();
+    });
+</script>

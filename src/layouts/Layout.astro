@@ -54,6 +54,23 @@ const isIndexable = !noindex && urls !== undefined;
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#282c34" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      (() => {
+        let stored;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch {}
+        const dark = stored
+          ? stored === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.classList.toggle("dark", dark);
+        document
+          .querySelectorAll('meta[name="theme-color"]')
+          .forEach((meta) =>
+            meta.setAttribute("content", dark ? "#282c34" : "#ffffff")
+          );
+      })();
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AleDev" />
     <meta property="og:locale" content={OG_LOCALES[lang]} />
@@ -95,7 +112,10 @@ const isIndexable = !noindex && urls !== undefined;
 
 <style is:global>
   :root {
-    color-scheme: light dark;
+    color-scheme: light;
+  }
+  :root.dark {
+    color-scheme: dark;
   }
   html {
     font-family: "Fira Mono", ui-monospace, monospace;

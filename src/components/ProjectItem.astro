@@ -48,13 +48,11 @@ const { title, description, tags, image, github, link } = Astro.props.project;
   .image-link:hover .image::before {
     opacity: 1;
   }
-  @media (prefers-color-scheme: dark) {
-    .image::before {
-      opacity: 1;
-    }
-    .image-link:hover .image::before {
-      opacity: 0;
-    }
+  :global(html.dark) .image::before {
+    opacity: 1;
+  }
+  :global(html.dark) .image-link:hover .image::before {
+    opacity: 0;
   }
 </style>
 

@@ -3,6 +3,7 @@ import { t } from "i18next";
 import { NAV_ITEMS } from "../config/site";
 import LanguageSelector from "./LanguageSelector.astro";
 import LogoIcon from "./icons/Logo.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <style>
@@ -62,6 +63,9 @@ import LogoIcon from "./icons/Logo.astro";
       }
       <li>
         <LanguageSelector />
+      </li>
+      <li>
+        <ThemeToggle />
       </li>
     </ul>
   </nav>

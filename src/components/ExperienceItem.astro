@@ -12,6 +12,8 @@ const { dateFrom, dateTo, fromIso, toIso, name, description } =
 <style>
   .fadein-animation {
     animation: experience-fadein linear both;
+  }
+  .fadein-timeline {
     animation-timeline: view();
     animation-range: entry 10% cover 20%;
   }
@@ -32,19 +34,19 @@ const { dateFrom, dateTo, fromIso, toIso, name, description } =
 >
 </div>
 <p
-  class="fadein-animation mb-1 text-sm font-normal leading-none text-gray-400 dark:text-white/80"
+  class="fadein-animation fadein-timeline mb-1 text-sm font-normal leading-none text-gray-400 dark:text-white/80"
 >
   <time datetime={fromIso}>{dateFrom}</time>
   <span aria-hidden="true"> - </span>
   {toIso ? <time datetime={toIso}>{dateTo}</time> : <span>{dateTo}</span>}
 </p>
 <h3
-  class="fadein-animation text-lg font-semibold text-gray-900 opacity-80 dark:text-white"
+  class="fadein-animation fadein-timeline text-lg font-semibold text-gray-900 opacity-80 dark:text-white"
 >
   {name}
 </h3>
 <p
-  class="fadein-animation text-pretty text-base font-normal text-gray-500 dark:text-gray-400"
+  class="fadein-animation fadein-timeline text-pretty text-base font-normal text-gray-500 dark:text-gray-400"
 >
   {description}
 </p>

@@ -13,6 +13,8 @@ import ThemeToggle from "./ThemeToggle.astro";
   }
   .smaller {
     animation: smaller-animation linear both;
+  }
+  .smaller-timeline {
     animation-timeline: scroll(root block);
     animation-range: 0 200px;
   }
@@ -38,7 +40,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 </style>
 
 <header
-  class="smaller fixed left-1/2 z-10 mx-auto flex w-full -translate-x-1/2 flex-wrap content-center items-center justify-between bg-white py-2 md:py-6 xl:w-[1120px] dark:bg-surface"
+  class="smaller smaller-timeline fixed left-1/2 z-10 mx-auto flex w-full -translate-x-1/2 flex-wrap content-center items-center justify-between bg-white py-2 md:py-6 xl:w-[1120px] dark:bg-surface"
 >
   <a href="#start" aria-label={t("menu.home")}>
     <LogoIcon

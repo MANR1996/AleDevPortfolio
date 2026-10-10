@@ -14,7 +14,7 @@ export const SITE = {
   name: "Manuel Alejandro Naranjo Rey",
   mail,
   phone,
-  careerStart: "2018-09-01",
+  careerStart: "2019-09-01",
   profiles: {
     linkedin: "https://www.linkedin.com/in/manuel-alejandro-naranjo-rey",
     github: "https://github.com/MANR1996",

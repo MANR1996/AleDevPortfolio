@@ -14,3 +14,12 @@ export interface Project {
   github: string;
   link: string;
 }
+
+export interface Experience {
+  dateFrom: string;
+  dateTo: string;
+  fromIso: string;
+  toIso: string | null;
+  name: string;
+  description: string;
+}

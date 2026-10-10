@@ -11,8 +11,8 @@
       "title": "Hola, soy",
       "options": {
         "first": "Alejandro.",
-        "second": "Desarrollador Web.",
-        "third": "aprendiz",
+        "second": "especialista UI.",
+        "third": "creativo.",
         "fourth": "colaborador.",
         "fifth": "perfeccionista."
       }
@@ -24,7 +24,7 @@
       "second": "y sumando."
     },
     "sections": {
-      "about": "Sobre mi.",
+      "about": "Sobre mí.",
       "experience": "Experiencia Laboral.",
       "projects": "Proyectos.",
       "contact": "Contactemos."
@@ -32,7 +32,7 @@
   },
   "menu": {
     "home": "Inicio",
-    "about": "Sobre mi",
+    "about": "Sobre mí",
     "experience": "Experiencia",
     "projects": "Proyectos",
     "contact": "Contacto",
@@ -45,10 +45,10 @@
     "skip": "Saltar al contenido principal"
   },
   "about": {
-    "first": "Comencé mi viaje en el campo de la informática en 2014, explorando diversas áreas antes de especializarme en desarrollo web (específicamente en el perfil frontend) e inteligencia artificial (con un enfoque en machine learning). Siempre he disfrutado enfrentándome a desafíos profesionales y buscando soluciones innovadoras, y me enorgullece mi alto nivel de compromiso con las tareas que se me asignan.",
-    "second": "Me gradué en Ingeniería Informática en 2020 de la Universidad de Matanzas Camilo Cienfuegos. Durante mis estudios, obtuve excelentes resultados académicos que me permitieron participar en numerosos proyectos y prácticas profesionales. Un hito de mi carrera académica fue la publicación de mi tesis para optar por el título de Ingeniero Informático en una prestigiosa revista científica por su impacto en el área aplicada, lo cual refleja mi compromiso con la investigación y la innovación. Mi rendimiento destacado me valió el honor de ser seleccionado como el mejor estudiante de mi carrera, y fui invitado a unirme a la Unión de Informáticos de Cuba (UIC).",
-    "third": "Mi idioma nativo es el español, y también tengo un nivel básico de inglés. Mi dedicación y responsabilidad hacia mi trabajo, combinadas con mi pasión por la informática, me han permitido obtener resultados exitosos en mis proyectos. Siempre estoy dispuesto a aprender y adquirir nuevas habilidades para seguir creciendo en mi carrera.",
-    "fourth": "Espero tener la oportunidad de llevar mi experiencia y habilidades a un nuevo desafío en el campo de la informática."
+    "first": "Soy un Senior Frontend Engineer orientado a resultados, con más de {{years}} años de experiencia especializada en el desarrollo de aplicaciones SaaS B2B escalables, optimización avanzada del rendimiento web y liderazgo técnico. Mi enfoque principal abarca la creación de Sistemas de Diseño (Design Systems) robustos y la integración de interfaces interactivas impulsadas por IA.",
+    "second": "Me gradué en Ingeniería Informática en 2020 por la Universidad de Matanzas (Cuba), obteniendo el reconocimiento al mejor estudiante de mi promoción e ingresando en la Unión de Informáticos de Cuba (UIC). Como hito académico, fui coautor de un artículo científico sobre modelos predictivos publicado en la revista DYNA. A lo largo de mi carrera, he demostrado una sólida capacidad para estandarizar librerías de componentes empresariales y transformar arquitecturas heredadas complejas en ecosistemas React modernos y de alto rendimiento.",
+    "third": "Poseo un nivel de inglés profesional (Intermedio-Alto) que me permite liderar equipos multidisciplinares globales y colaborar estrechamente con stakeholders de Producto y UX/UI. Me define un alto compromiso con la calidad de código, las buenas prácticas de desarrollo (DX) y la mentoría de ingenieros.",
+    "fourth": "Aporto una combinación única de rigor técnico, experiencia en liderazgo y pasión por la innovación. Estoy preparado para asumir nuevos retos y aportar un valor inmediato en proyectos tecnológicos exigentes."
   },
   "contact": {
     "name": "Tu nombre",
@@ -66,22 +66,34 @@
   "githubMessage": "Ver en Github",
   "experience": {
     "first": {
-      "from": "Enero 2019",
-      "to": "Septiembre 2023",
-      "name": "Profesor en Universidad de Matanzas.",
-      "description": "Impartí clases de Programación Web e Inteligencia Artificial, dos campos fascinantes y en constante evolución. Durante este tiempo, no sólo enseñé, sino que también aprendí mucho de mis estudiantes, lo que me permitió crecer tanto personal como profesionalmente. Además de mi labor docente, estuve activamente involucrado en el desarrollo de varios proyectos innovadores en estas áreas. Esta experiencia me permitió aplicar y ampliar mis conocimientos teóricos, al tiempo que me brindó la oportunidad de contribuir al avance de estas disciplinas. Mi participación en estos proyectos ha sido una parte integral de mi carrera y ha reforzado mi pasión por la enseñanza y el desarrollo."
+      "from": "Febrero 2024",
+      "to": "Actualidad",
+      "name": "Desarrollador Frontend en BlinkLearning",
+      "description": "Arquitecté y desplegué una librería de componentes UI en Storybook para toda la empresa, logrando una reducción del 50% en el tiempo de carga inicial. Impulsé la migración arquitectónica de módulos web legados en React Native hacia React moderno y diseñé agentes conversacionales de IA para herramientas educativas."
     },
     "second": {
-      "from": "Septiembre 2019",
-      "to": "Octubre 2019",
-      "name": "Diseñador y desarrollador de la web de AMB Septic Tank.",
-      "description": "Tuve la oportunidad de diseñar y desarrollar el sitio web para un próspero negocio séptico ubicado en Miami, Florida. A pesar de ser una web estática y simple, su diseño intuitivo y fácil de navegar resultó ser un activo valioso para el negocio. Este proyecto no sólo mejoró la visibilidad online del negocio, sino que también impulsó su alcance a un público más amplio. La implementación de este sitio web marcó un hito en la trayectoria del negocio, proporcionándole un impulso significativo. Mi contribución al éxito de este negocio a través del diseño y desarrollo web ha sido una experiencia gratificante y enriquecedora."
+      "from": "Febrero 2024",
+      "to": "Actualidad",
+      "name": "Consultor Técnico Frontend en PartsBase",
+      "description": "Actúo como asesor técnico estratégico, diseñando e incrustando flujos de asistentes de IA conversacionales personalizados directamente en la plataforma web principal para optimizar la navegación de autoservicio y la interacción del usuario. Colaboro en la optimización de la gestión de estado compleja utilizando Redux."
     },
     "third": {
-      "from": "Septiembre 2020",
-      "to": "Actualidad",
-      "name": "Desarrollador de Green Island Solution",
-      "description": "Actualmente me desempeño como desarrollador frontend en una prestigiosa empresa que proporciona servicios a PartsBase Inc., una reconocida corporación con sede en Norteamérica. Mi papel principal es crear y optimizar interfaces de usuario atractivas y funcionales. Trabajando en estrecha colaboración con PartsBase Inc., nos esforzamos por mejorar continuamente la experiencia del usuario, lo que a su vez nos ayuda a mantener la posición como líder en nuestro campo."
+      "from": "Febrero 2022",
+      "to": "Febrero 2024",
+      "name": "Tech Lead en PartsBase",
+      "description": "Lideré y mentoricé a un equipo de ingeniería de 8 desarrolladores, supervisando la planificación y resolución de cuellos de botella. Arquitecté e integré una infraestructura de mensajería en tiempo real utilizando SendBird y establecí rigurosos estándares de calidad de código para ciclos de lanzamiento más estables."
+    },
+    "fourth": {
+      "from": "Enero 2020",
+      "to": "Febrero 2022",
+      "name": "Desarrollador Frontend en PartsBase",
+      "description": "Orquesté la migración completa del frontend de Govgistics desde una pila heredada de .NET a una arquitectura moderna de React/Redux. Construí más de 30 vistas complejas, paneles de análisis interactivos y módulos de reportes, garantizando un alto rendimiento en el manejo de cargas masivas de datos."
+    },
+    "fifth": {
+      "from": "Septiembre 2019",
+      "to": "Noviembre 2023",
+      "name": "Profesor Adjunto e Investigador en Univ. de Matanzas",
+      "description": "Tutoricé y supervisé trabajos de diploma de grado en Ingeniería Informática y Desarrollo de Software. Fui coautor de un artículo científico revisado por pares publicado en la revista DYNA sobre modelos predictivos de minería de datos."
     }
   },
   "project": {

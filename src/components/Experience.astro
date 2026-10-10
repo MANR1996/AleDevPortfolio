@@ -1,28 +1,57 @@
 ---
 import { t } from "i18next";
 import ExperienceItem from "./ExperienceItem.astro";
+import type { Experience } from "../types";
 
-const EXPERIENCE = [
-  { key: "first", fromIso: "2019-01", toIso: "2023-09" },
-  { key: "second", fromIso: "2019-09", toIso: "2019-10" },
-  { key: "third", fromIso: "2020-09", toIso: null },
-] as const;
-
-const items = EXPERIENCE.map(({ key, fromIso, toIso }) => ({
-  dateFrom: t(`experience.${key}.from`),
-  dateTo: t(`experience.${key}.to`),
-  fromIso,
-  toIso,
-  name: t(`experience.${key}.name`),
-  description: t(`experience.${key}.description`),
-}));
+const EXPERIENCE: Experience[] = [
+  {
+    dateFrom: t("experience.first.from"),
+    dateTo: t("experience.first.to"),
+    fromIso: "2019-01",
+    toIso: "2023-09",
+    name: t("experience.first.name"),
+    description: t("experience.first.description"),
+  },
+  {
+    dateFrom: t("experience.second.from"),
+    dateTo: t("experience.second.to"),
+    fromIso: "2019-09",
+    toIso: "2019-10",
+    name: t("experience.second.name"),
+    description: t("experience.second.description"),
+  },
+  {
+    dateFrom: t("experience.third.from"),
+    dateTo: t("experience.third.to"),
+    fromIso: "2020-09",
+    toIso: null,
+    name: t("experience.third.name"),
+    description: t("experience.third.description"),
+  },
+  {
+    dateFrom: t("experience.fourth.from"),
+    dateTo: t("experience.fourth.to"),
+    fromIso: "2020-09",
+    toIso: null,
+    name: t("experience.fourth.name"),
+    description: t("experience.fourth.description"),
+  },
+  {
+    dateFrom: t("experience.fifth.from"),
+    dateTo: t("experience.fifth.to"),
+    fromIso: "2020-09",
+    toIso: null,
+    name: t("experience.fifth.name"),
+    description: t("experience.fifth.description"),
+  },
+];
 ---
 
 <ol class="relative border-s-2">
   {
-    items.map((item) => (
+    EXPERIENCE.map((experience) => (
       <li class="mb-10 ms-4">
-        <ExperienceItem {...item} />
+        <ExperienceItem experience={experience} />
       </li>
     ))
   }

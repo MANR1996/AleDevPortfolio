@@ -1,9 +1,12 @@
 ---
 import { t } from "i18next";
 import { SITE } from "../config/site";
+import { getYearsSince } from "../utils/date";
+
+const yearsOfExperience = getYearsSince(SITE.careerStart);
 
 const PARAGRAPHS = ["first", "second", "third", "fourth"].map((key) =>
-  t(`about.${key}`)
+  t(`about.${key}`, { years: yearsOfExperience })
 );
 ---
 

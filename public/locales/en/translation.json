@@ -11,8 +11,8 @@
       "title": "Hi, I am",
       "options": {
         "first": "Alejandro.",
-        "second": "a Web Developer.",
-        "third": "an apprentice.",
+        "second": "a UI specialist.",
+        "third": "creative.",
         "fourth": "a collaborator.",
         "fifth": "a perfectionist."
       }
@@ -45,10 +45,10 @@
     "skip": "Skip to main content"
   },
   "about": {
-    "first": "I began my journey in the field of computer science in 2014, exploring various areas before specializing in web development (specifically in the frontend profile) and artificial intelligence (with a focus on machine learning). I have always enjoyed facing professional challenges and seeking innovative solutions, and I take pride in my high level of commitment to the tasks assigned to me.",
-    "second": "I graduated in Computer Engineering in 2020 from the University of Matanzas Camilo Cienfuegos. During my studies, I achieved excellent academic results that allowed me to participate in numerous projects and professional practices. A milestone in my academic career was the publication of my thesis to opt for the title of Computer Engineer in a prestigious scientific journal for its impact in the applied area, which reflects my commitment to research and innovation. My outstanding performance earned me the honor of being selected as the best student in my career, and I was invited to join the Union of Computer Scientists of Cuba (UIC by its acronym in Spanish).",
-    "third": "My native language is Spanish, and I also have a basic level of English. My dedication and responsibility towards my work, combined with my passion for computer science, have allowed me to achieve successful results in my projects. I am always willing to learn and acquire new skills to continue growing in my career.",
-    "fourth": "I hope to have the opportunity to bring my experience and skills to a new challenge in the field of computer science."
+    "first": "I am a results-oriented Senior Frontend Engineer with over {{years}} years of experience specializing in scalable B2B SaaS applications, advanced web performance optimization, and technical leadership. My core expertise focuses on building robust Design Systems and integrating AI-driven interactive interfaces.",
+    "second": "I graduated in Computer Engineering in 2020 from the University of Matanzas (Cuba), receiving top academic honors and joining the Union of Computer Scientists of Cuba (UIC). As an academic milestone, I co-authored a peer-reviewed scientific article on predictive models published in the DYNA journal. Throughout my career, I have a proven track record of standardizing enterprise component libraries and successfully transforming complex legacy architectures into modern, high-performance React ecosystems.",
+    "third": "I possess a professional upper-intermediate level of English, enabling me to lead global cross-functional engineering teams and collaborate closely with Product and UX/UI stakeholders. I am driven by a deep commitment to code quality, developer experience (DX), and mentoring engineering talent.",
+    "fourth": "I bring a unique combination of technical rigor, leadership experience, and a passion for innovation. I am ready to take on new challenges and deliver immediate value to demanding tech projects."
   },
   "contact": {
     "name": "Your name",
@@ -66,22 +66,34 @@
   "githubMessage": "View on Github",
   "experience": {
     "first": {
-      "from": "January 2019",
-      "to": "September 2023",
-      "name": "Professor at the University of Matanzas.",
-      "description": "I taught Web Programming and Artificial Intelligence, two fascinating and constantly evolving fields. During this time, I not only taught, but also learned a lot from my students, which allowed me to grow both personally and professionally. In addition to my teaching duties, I was actively involved in the development of several innovative projects in these areas. This experience allowed me to apply and expand my theoretical knowledge, while giving me the opportunity to contribute to the advancement of these disciplines. My participation in these projects has been an integral part of my career and has reinforced my passion for teaching and development."
+      "from": "February 2024",
+      "to": "Present",
+      "name": "Frontend Developer at BlinkLearning",
+      "description": "Architected and deployed a company-wide UI component library in Storybook, achieving a 50% reduction in initial load time. I drove the architectural migration of legacy React Native web modules to a modern React codebase and designed conversational AI agents for educational tools."
     },
     "second": {
-      "from": "September 2019",
-      "to": "October 2019",
-      "name": "Designer and developer of the AMB Septic Tank website.",
-      "description": "I had the opportunity to design and develop the website for a thriving septic business located in Miami, Florida. Despite being a static and simple website, its intuitive and easy-to-navigate design proved to be a valuable asset for the business. This project not only improved the online visibility of the business, but also boosted its reach to a wider audience. The implementation of this website marked a milestone in the business's trajectory, providing it with a significant boost. My contribution to the success of this business through web design and development has been a rewarding and enriching experience."
+      "from": "February 2024",
+      "to": "Present",
+      "name": "Frontend Technical Consultant at PartsBase",
+      "description": "I act as a strategic technical advisor, designing and embedding custom conversational AI assistant flows directly into the core web platform to optimize self-service navigation and user interaction. I also collaborate on optimizing complex state management using Redux."
     },
     "third": {
-      "from": "September 2020",
-      "to": "Present",
-      "name": "Developer at Green Island Solution",
-      "description": "I currently work as a frontend developer at a prestigious company that provides services to PartsBase Inc., a renowned corporation based in North America. My main role is to create and optimize attractive and functional user interfaces. Working closely with PartsBase Inc., we strive to continuously improve the user experience, which in turn helps us maintain our position as a leader in our field."
+      "from": "February 2022",
+      "to": "February 2024",
+      "name": "Tech Lead at PartsBase",
+      "description": "Led and mentored a cross-functional engineering team of 8 developers, overseeing sprint planning and resolving technical bottlenecks. I architected and integrated real-time messaging infrastructure using SendBird and established rigorous code quality standards for more predictable release cycles."
+    },
+    "fourth": {
+      "from": "January 2020",
+      "to": "February 2022",
+      "name": "Frontend Developer at PartsBase",
+      "description": "Orchestrated the complete frontend migration of Govgistics from a legacy .NET stack to a modern React/Redux architecture. Built over 30 complex, data-intensive views, interactive analytics dashboards, and custom reporting modules, ensuring high rendering performance."
+    },
+    "fifth": {
+      "from": "September 2019",
+      "to": "November 2023",
+      "name": "Adjunct Professor and Researcher at Univ. of Matanzas",
+      "description": "Tutored and supervised undergraduate thesis projects in Computer Engineering and Software Development. I also co-authored a peer-reviewed scientific article published in the DYNA journal on predictive data mining models."
     }
   },
   "project": {

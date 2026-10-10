@@ -1,14 +1,12 @@
 ---
+import type { Experience } from "../types";
+
 interface Props {
-  dateFrom: string;
-  dateTo: string;
-  fromIso: string;
-  toIso: string | null;
-  name: string;
-  description: string;
+  experience: Experience;
 }
 
-const { dateFrom, dateTo, fromIso, toIso, name, description } = Astro.props;
+const { dateFrom, dateTo, fromIso, toIso, name, description } =
+  Astro.props.experience;
 ---
 
 <style>

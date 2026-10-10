@@ -30,23 +30,23 @@ const { dateFrom, dateTo, fromIso, toIso, name, description } =
 </style>
 
 <div
-  class="absolute -start-1.5 mt-1.5 size-3 rounded-full border border-white bg-blue-600/80 opacity-50 dark:border-white dark:bg-white dark:opacity-100"
+  class="absolute -start-2 mt-1.5 size-3.5 rounded-full border-2 border-blue-600 bg-white dark:border-blue-500 dark:bg-slate-900"
 >
 </div>
 <p
-  class="fadein-animation fadein-timeline mb-1 text-sm font-normal leading-none text-gray-400 dark:text-white/80"
+  class="fadein-animation fadein-timeline mb-1 text-sm font-normal leading-none text-slate-600 dark:text-slate-300"
 >
   <time datetime={fromIso}>{dateFrom}</time>
   <span aria-hidden="true"> - </span>
   {toIso ? <time datetime={toIso}>{dateTo}</time> : <span>{dateTo}</span>}
 </p>
 <h3
-  class="fadein-animation fadein-timeline text-lg font-semibold text-gray-900 opacity-80 dark:text-white"
+  class="fadein-animation fadein-timeline text-lg font-semibold text-slate-900 dark:text-slate-100"
 >
   {name}
 </h3>
 <p
-  class="fadein-animation fadein-timeline text-pretty text-base font-normal text-gray-500 dark:text-gray-400"
+  class="fadein-animation fadein-timeline text-pretty text-base font-normal text-slate-700 dark:text-slate-300"
 >
   {description}
 </p>

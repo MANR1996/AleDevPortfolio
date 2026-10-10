@@ -139,14 +139,14 @@ const personSchema = {
           status.key === "working" ? (
             <Badge text={status.label} class={status.class} />
           ) : (
-            <a class="flex" href="#contact">
+             <a class="flex transition hover:scale-105" href="#contact">
               <Badge text={status.label} class={status.class} />
             </a>
           )
         }
       </div>
       <h1
-        class="block gap-x-4 whitespace-nowrap pb-4 text-2xl/[40px] font-bold text-black dark:text-white/80 [--line:40px] sm:flex sm:text-4xl/[50px] sm:[--line:50px] md:leading-[70px] md:[--line:70px] lg:text-5xl/[70px]"
+        class="block gap-x-4 whitespace-nowrap pb-4 text-2xl/[40px] font-bold text-slate-900 dark:text-slate-50 sm:flex sm:text-4xl/[50px] sm:[--line:50px] md:leading-[70px] md:[--line:70px] lg:text-5xl/[70px]"
       >
         {t("site.presentation.title")}
         <span class="block h-[var(--line)] overflow-hidden">
@@ -160,14 +160,14 @@ const personSchema = {
         </span>
       </h1>
       <h2
-        class="typing mb-2 text-xl opacity-50 dark:text-white dark:opacity-80 lg:text-2xl"
+        class="typing mb-2 text-xl text-slate-600 dark:text-slate-300 lg:text-2xl"
         style={`--chars: ${experienceSummary.length}`}
       >
-        <span class="text-blue-600/80 dark:text-blue-400">
+        <span class="text-blue-700 dark:text-blue-400">
           {yearsOfExperience}{t("site.years")}
         </span>
         {t("site.experience.first")}
-        <span class="text-blue-600/80 dark:text-blue-400">
+        <span class="text-blue-700 dark:text-blue-400">
           {t("site.experience.second")}
         </span>
       </h2>

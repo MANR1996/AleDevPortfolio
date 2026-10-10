@@ -32,7 +32,6 @@ export const STATUS_STYLES: Record<StatusKey, string> = {
 };
 
 export const NAV_ITEMS = [
-  { href: "#start", label: "menu.home" },
   { href: "#about", label: "menu.about" },
   { href: "#experience", label: "menu.experience" },
   { href: "#projects", label: "menu.projects" },
